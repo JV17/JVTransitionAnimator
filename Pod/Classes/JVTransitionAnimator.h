@@ -34,9 +34,13 @@
 
 #pragma mark - Transition Animations
 
-- (void)performPushOffScreenAnimationWithDuration;
+- (void)performPushOffScreenAnimation;
 
-- (void)performSlideInOutAnimationWithDuration;
+- (void)performSlideInOutAnimation;
+
+- (void)preformZoomInAnimation;
+
+- (void)preformZoomOutAnimation;
 
 
 @end

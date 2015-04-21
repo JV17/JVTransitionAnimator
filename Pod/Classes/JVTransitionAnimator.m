@@ -9,7 +9,6 @@
 #import "JVTransitionAnimator.h"
 
 
-
 @interface JVTransitionAnimator()
 
 @property (nonatomic) BOOL presenting;
@@ -57,7 +56,7 @@ static CGFloat const kDuration = 0.3f/1.5f;
     self.duration = [self transitionDuration:self.transitionContext];
     
     // perform the animation!
-    [self performSlideInOutAnimationWithDuration];
+    [self preformZoomInAnimation];
     
 }
 
@@ -93,7 +92,7 @@ static CGFloat const kDuration = 0.3f/1.5f;
 
 #pragma mark - Transition Animations
 
-- (void)performPushOffScreenAnimationWithDuration
+- (void)performPushOffScreenAnimation
 {
     // set up from 2D transforms that we'll use in the animation
     CGFloat transforms2D = 3.14159265359;
@@ -145,7 +144,7 @@ static CGFloat const kDuration = 0.3f/1.5f;
 }
 
 
-- (void)performSlideInOutAnimationWithDuration
+- (void)performSlideInOutAnimation
 {
     // When sliding the views horizontally, in and out, figure out whether we are going left or right.
     BOOL goingRight = (self.toView.frame.origin.x < self.toView.frame.origin.x);
@@ -181,6 +180,56 @@ static CGFloat const kDuration = 0.3f/1.5f;
                              [self.transitionContext completeTransition:YES];
                          }
                 
+                     }];
+}
+
+
+- (void)preformZoomInAnimation
+{
+    [self.container addSubview:self.toView];
+    self.toView.alpha = 0;
+    self.toView.transform = CGAffineTransformMakeScale(0.1, 0.1);
+    
+    [UIView animateWithDuration:self.duration
+                     animations:^{
+                         
+                         self.toView.transform = CGAffineTransformIdentity;
+                         self.toView.alpha = 1;
+                         self.fromView.alpha = 0;
+                         
+                     } completion:^(BOOL finished) {
+                         
+                         if(finished) {
+                             self.fromView.alpha = 1;
+                             
+                             // tell our transitionContext object that we've finished animating
+                             [self.transitionContext completeTransition:YES];
+                         }
+                         
+                     }];
+}
+
+
+- (void)preformZoomOutAnimation
+{
+    [self.container addSubview:self.toView];
+    self.toView.alpha = 0;
+    
+    [UIView animateWithDuration:self.duration
+                     animations:^{
+                         
+                         self.fromView.transform = CGAffineTransformMakeScale(0.1, 0.1);
+                         self.toView.alpha = 1;
+                         
+                     } completion:^(BOOL finished) {
+                         
+                         if(finished) {
+                             self.fromView.transform = CGAffineTransformIdentity;
+                             
+                             // tell our transitionContext object that we've finished animating
+                             [self.transitionContext completeTransition:YES];
+                         }
+    
                      }];
 }
 
