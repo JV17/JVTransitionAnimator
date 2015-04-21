@@ -1,9 +1,4 @@
-# JVTransitionAnimtor
-
-[![CI Status](http://img.shields.io/travis/Jorge Valbuena/JVTransitionAnimtor.svg?style=flat)](https://travis-ci.org/Jorge Valbuena/JVTransitionAnimtor)
-[![Version](https://img.shields.io/cocoapods/v/JVTransitionAnimtor.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimtor)
-[![License](https://img.shields.io/cocoapods/l/JVTransitionAnimtor.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimtor)
-[![Platform](https://img.shields.io/cocoapods/p/JVTransitionAnimtor.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimtor)
+# JVTransitionAnimtor [![Version](https://img.shields.io/cocoapods/v/JVTransitionAnimtor.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimtor) [![License](https://img.shields.io/cocoapods/l/JVTransitionAnimtor.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimtor) [![Platform](https://img.shields.io/cocoapods/p/JVTransitionAnimtor.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimtor)
 
 ## Usage
 

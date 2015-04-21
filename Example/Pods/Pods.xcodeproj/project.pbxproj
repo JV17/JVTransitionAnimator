@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F31AE80A8A2DA2FCD6699CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9871352BB7010DA3034F2764 /* Foundation.framework */; };
+		6BAC5F05EE6B99C7AC964747 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9871352BB7010DA3034F2764 /* Foundation.framework */; };
+		E1D478B611C9466911009D3E /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E212C0773C2D2C00876594 /* Pods-Tests-dummy.m */; };
+		EAFDE6EDBE77BBAA42E821A4 /* Pods-JVTransitionAnimtor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D282FFD4B2277311481CAF /* Pods-JVTransitionAnimtor-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2852B15A5879A4CE05B47722 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5FBF437654F8DE60221A6F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 934E862CD94A6D0BC4B4C3C8;
+			remoteInfo = "Pods-Tests-JVTransitionAnimtor-JVTransitionAnimtor";
+		};
+		AC11141F3AD1F631C24243A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5FBF437654F8DE60221A6F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5923BBC737C44B9049FEC89F;
+			remoteInfo = "Pods-JVTransitionAnimtor-JVTransitionAnimtor-JVTransitionAnimtor";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		013728CA3712EAA47AC8CCB8 /* Pods-JVTransitionAnimtor-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JVTransitionAnimtor-environment.h"; sourceTree = "<group>"; };
+		014C4D6C92977E8D65C5D9E5 /* Pods-JVTransitionAnimtor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JVTransitionAnimtor.release.xcconfig"; sourceTree = "<group>"; };
+		102817DF632C871DA856DAC9 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		1756987E3227E6989FFD3CEF /* libPods-JVTransitionAnimtor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JVTransitionAnimtor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F5C6AC621B016A50C7E50A5 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4170E154DD1FD98F2C9782CA /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		55F8C087439C7E711DDCADD3 /* JVTransitionAnimtor.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JVTransitionAnimtor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		709045CD9595B7F00A752099 /* Pods-JVTransitionAnimtor-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JVTransitionAnimtor-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7C5C8DCEF59082CB3742343C /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		85D282FFD4B2277311481CAF /* Pods-JVTransitionAnimtor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JVTransitionAnimtor-dummy.m"; sourceTree = "<group>"; };
+		8A6442C261AD85EBB99DFDE4 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9054827177C4E5A4F35A0423 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
+		94460D08C92D4B3AAD668C12 /* Pods-JVTransitionAnimtor-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JVTransitionAnimtor-resources.sh"; sourceTree = "<group>"; };
+		9722CA980AFAE05D4A5A4AE2 /* JVTransitionAnimtor.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JVTransitionAnimtor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		9871352BB7010DA3034F2764 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C0FD3AE7BEE301BE71E51EBB /* Pods-JVTransitionAnimtor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JVTransitionAnimtor.debug.xcconfig"; sourceTree = "<group>"; };
+		D2142585AED92E2E2B2A894A /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		D4E212C0773C2D2C00876594 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
+		F1219B2FB6DBD2CB228936DA /* Pods-JVTransitionAnimtor-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JVTransitionAnimtor-acknowledgements.plist"; sourceTree = "<group>"; };
+		F22305B8EB712FBC5479A54C /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C8775AA7A713E9280CCBC21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66AEFF83B62F7F709E60C340 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F31AE80A8A2DA2FCD6699CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C2085A467C5444E7E927BD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BAC5F05EE6B99C7AC964747 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A06F6D0F60E27AAC36A53237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31FBF2DA57EDCEB29BACF9D4 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE2CB4A17E2098462C3149E6 /* JVTransitionAnimtor */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		334CF0C3814B9059362047AD /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9871352BB7010DA3034F2764 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		3B3FB9E7D84C46BAA29DCC19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9722CA980AFAE05D4A5A4AE2 /* JVTransitionAnimtor.bundle */,
+				55F8C087439C7E711DDCADD3 /* JVTransitionAnimtor.bundle */,
+				1756987E3227E6989FFD3CEF /* libPods-JVTransitionAnimtor.a */,
+				7C5C8DCEF59082CB3742343C /* libPods-Tests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B9304CC66DB15DC0F6A7DDD /* Pods-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8A6442C261AD85EBB99DFDE4 /* Pods-Tests-acknowledgements.markdown */,
+				D2142585AED92E2E2B2A894A /* Pods-Tests-acknowledgements.plist */,
+				D4E212C0773C2D2C00876594 /* Pods-Tests-dummy.m */,
+				F22305B8EB712FBC5479A54C /* Pods-Tests-environment.h */,
+				9054827177C4E5A4F35A0423 /* Pods-Tests-resources.sh */,
+				4170E154DD1FD98F2C9782CA /* Pods-Tests.debug.xcconfig */,
+				102817DF632C871DA856DAC9 /* Pods-Tests.release.xcconfig */,
+			);
+			name = "Pods-Tests";
+			path = "Target Support Files/Pods-Tests";
+			sourceTree = "<group>";
+		};
+		AE36B3FC5331A15A608C6648 /* Pods-JVTransitionAnimtor */ = {
+			isa = PBXGroup;
+			children = (
+				709045CD9595B7F00A752099 /* Pods-JVTransitionAnimtor-acknowledgements.markdown */,
+				F1219B2FB6DBD2CB228936DA /* Pods-JVTransitionAnimtor-acknowledgements.plist */,
+				85D282FFD4B2277311481CAF /* Pods-JVTransitionAnimtor-dummy.m */,
+				013728CA3712EAA47AC8CCB8 /* Pods-JVTransitionAnimtor-environment.h */,
+				94460D08C92D4B3AAD668C12 /* Pods-JVTransitionAnimtor-resources.sh */,
+				C0FD3AE7BEE301BE71E51EBB /* Pods-JVTransitionAnimtor.debug.xcconfig */,
+				014C4D6C92977E8D65C5D9E5 /* Pods-JVTransitionAnimtor.release.xcconfig */,
+			);
+			name = "Pods-JVTransitionAnimtor";
+			path = "Target Support Files/Pods-JVTransitionAnimtor";
+			sourceTree = "<group>";
+		};
+		C25593039365E87CCA52F6E9 = {
+			isa = PBXGroup;
+			children = (
+				2F5C6AC621B016A50C7E50A5 /* Podfile */,
+				31FBF2DA57EDCEB29BACF9D4 /* Development Pods */,
+				E66BDB126567CAD6C6D3B597 /* Frameworks */,
+				3B3FB9E7D84C46BAA29DCC19 /* Products */,
+				CD46BE6E48DB094EE02D5DA1 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		CD46BE6E48DB094EE02D5DA1 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE36B3FC5331A15A608C6648 /* Pods-JVTransitionAnimtor */,
+				9B9304CC66DB15DC0F6A7DDD /* Pods-Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E66BDB126567CAD6C6D3B597 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				334CF0C3814B9059362047AD /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE2CB4A17E2098462C3149E6 /* JVTransitionAnimtor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = JVTransitionAnimtor;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		217C52E19F383CC8BD5A3947 /* Pods-JVTransitionAnimtor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4E9782E4D26F11F56D87E00 /* Build configuration list for PBXNativeTarget "Pods-JVTransitionAnimtor" */;
+			buildPhases = (
+				EE45FF056905237DEFA7E779 /* Sources */,
+				9C2085A467C5444E7E927BD0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				341E4773C7DB7704F0C40846 /* PBXTargetDependency */,
+			);
+			name = "Pods-JVTransitionAnimtor";
+			productName = "Pods-JVTransitionAnimtor";
+			productReference = 1756987E3227E6989FFD3CEF /* libPods-JVTransitionAnimtor.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		58DCA18B1825B92DEDDAC033 /* Pods-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE9E1225FF54C9317675882D /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
+			buildPhases = (
+				9B2B7131895D657587173C8C /* Sources */,
+				66AEFF83B62F7F709E60C340 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C4A0B2F7520B01F82B61F82 /* PBXTargetDependency */,
+			);
+			name = "Pods-Tests";
+			productName = "Pods-Tests";
+			productReference = 7C5C8DCEF59082CB3742343C /* libPods-Tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5923BBC737C44B9049FEC89F /* Pods-JVTransitionAnimtor-JVTransitionAnimtor-JVTransitionAnimtor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6F6AA89577FAEE1BFBA6A16 /* Build configuration list for PBXNativeTarget "Pods-JVTransitionAnimtor-JVTransitionAnimtor-JVTransitionAnimtor" */;
+			buildPhases = (
+				FD0668E8DD7DE113B81C91C6 /* Sources */,
+				4C8775AA7A713E9280CCBC21 /* Frameworks */,
+				8A3CD5F26C44A82393277BB0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-JVTransitionAnimtor-JVTransitionAnimtor-JVTransitionAnimtor";
+			productName = "Pods-JVTransitionAnimtor-JVTransitionAnimtor-JVTransitionAnimtor";
+			productReference = 9722CA980AFAE05D4A5A4AE2 /* JVTransitionAnimtor.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		934E862CD94A6D0BC4B4C3C8 /* Pods-Tests-JVTransitionAnimtor-JVTransitionAnimtor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3920646A9C81AF005ACE4A5E /* Build configuration list for PBXNativeTarget "Pods-Tests-JVTransitionAnimtor-JVTransitionAnimtor" */;
+			buildPhases = (
+				D2D26022006B6F1B4B0216D3 /* Sources */,
+				A06F6D0F60E27AAC36A53237 /* Frameworks */,
+				287B0561B6EB3BBFF82A95A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Tests-JVTransitionAnimtor-JVTransitionAnimtor";
+			productName = "Pods-Tests-JVTransitionAnimtor-JVTransitionAnimtor";
+			productReference = 55F8C087439C7E711DDCADD3 /* JVTransitionAnimtor.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B5FBF437654F8DE60221A6F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 27507413E6DCF05866D90C97 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C25593039365E87CCA52F6E9;
+			productRefGroup = 3B3FB9E7D84C46BAA29DCC19 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				217C52E19F383CC8BD5A3947 /* Pods-JVTransitionAnimtor */,
+				5923BBC737C44B9049FEC89F /* Pods-JVTransitionAnimtor-JVTransitionAnimtor-JVTransitionAnimtor */,
+				58DCA18B1825B92DEDDAC033 /* Pods-Tests */,
+				934E862CD94A6D0BC4B4C3C8 /* Pods-Tests-JVTransitionAnimtor-JVTransitionAnimtor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		287B0561B6EB3BBFF82A95A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A3CD5F26C44A82393277BB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B2B7131895D657587173C8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1D478B611C9466911009D3E /* Pods-Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2D26022006B6F1B4B0216D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE45FF056905237DEFA7E779 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAFDE6EDBE77BBAA42E821A4 /* Pods-JVTransitionAnimtor-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD0668E8DD7DE113B81C91C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		341E4773C7DB7704F0C40846 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-JVTransitionAnimtor-JVTransitionAnimtor-JVTransitionAnimtor";
+			target = 5923BBC737C44B9049FEC89F /* Pods-JVTransitionAnimtor-JVTransitionAnimtor-JVTransitionAnimtor */;
+			targetProxy = AC11141F3AD1F631C24243A7 /* PBXContainerItemProxy */;
+		};
+		9C4A0B2F7520B01F82B61F82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-JVTransitionAnimtor-JVTransitionAnimtor";
+			target = 934E862CD94A6D0BC4B4C3C8 /* Pods-Tests-JVTransitionAnimtor-JVTransitionAnimtor */;
+			targetProxy = 2852B15A5879A4CE05B47722 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		22B23AAA499B18D8772CDAD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 102817DF632C871DA856DAC9 /* Pods-Tests.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		25F681EFE4BB71927C9427DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 014C4D6C92977E8D65C5D9E5 /* Pods-JVTransitionAnimtor.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		352C5222F6336DB76EE0D8E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4170E154DD1FD98F2C9782CA /* Pods-Tests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		714257146968DA025935C3C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		8657B52E2C4A60493A15194A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = JVTransitionAnimtor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		88DEA0BAAF29AA6F1F2D0446 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0FD3AE7BEE301BE71E51EBB /* Pods-JVTransitionAnimtor.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A450C458D98EB23ADD42BE91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B57A38F45E1A844A4B486D26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = JVTransitionAnimtor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		C6C169532A7BF6AA302A9651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = JVTransitionAnimtor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		FF74C8A454386C3279019EDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = JVTransitionAnimtor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27507413E6DCF05866D90C97 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				714257146968DA025935C3C7 /* Debug */,
+				A450C458D98EB23ADD42BE91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3920646A9C81AF005ACE4A5E /* Build configuration list for PBXNativeTarget "Pods-Tests-JVTransitionAnimtor-JVTransitionAnimtor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF74C8A454386C3279019EDA /* Debug */,
+				B57A38F45E1A844A4B486D26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4E9782E4D26F11F56D87E00 /* Build configuration list for PBXNativeTarget "Pods-JVTransitionAnimtor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88DEA0BAAF29AA6F1F2D0446 /* Debug */,
+				25F681EFE4BB71927C9427DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE9E1225FF54C9317675882D /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				352C5222F6336DB76EE0D8E8 /* Debug */,
+				22B23AAA499B18D8772CDAD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6F6AA89577FAEE1BFBA6A16 /* Build configuration list for PBXNativeTarget "Pods-JVTransitionAnimtor-JVTransitionAnimtor-JVTransitionAnimtor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8657B52E2C4A60493A15194A /* Debug */,
+				C6C169532A7BF6AA302A9651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B5FBF437654F8DE60221A6F5 /* Project object */;
+}

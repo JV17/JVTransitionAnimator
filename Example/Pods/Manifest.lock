@@ -1,0 +1,14 @@
+PODS:
+  - JVTransitionAnimtor (0.1.0)
+
+DEPENDENCIES:
+  - JVTransitionAnimtor (from `../`)
+
+EXTERNAL SOURCES:
+  JVTransitionAnimtor:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JVTransitionAnimtor: 3948dc9293ed5312e71fab2334f2d0358f822bb9
+
+COCOAPODS: 0.36.4
