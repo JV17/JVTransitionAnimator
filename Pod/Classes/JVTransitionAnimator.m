@@ -28,6 +28,9 @@
 
 @implementation JVTransitionAnimator
 
+static CGFloat const kDelay = 0.0f;
+static CGFloat const kDuration = 0.3f/1.5f;
+
 #pragma mark - UIViewControllerAnimatedTransitioning protocol methods
 
 // animate a change from one viewcontroller to another
@@ -48,41 +51,25 @@
     self.fromView = [self.transitionContext viewForKey:UITransitionContextFromViewKey];
     self.toView = [self.transitionContext viewForKey:UITransitionContextToViewKey];
     
-    // set up from 2D transforms that we'll use in the animation
-    CGFloat transforms2D = 3.14159265359;
-    
-    self.offScreenRight = CGAffineTransformMakeRotation(-transforms2D/2);
-    self.offScreenLeft = CGAffineTransformMakeRotation(transforms2D/2);
-    
-    // prepare the toView for the animation
-    self.toView.transform = self.presenting ? self.offScreenRight : self.offScreenLeft;
-    
-    // set the anchor point so that rotations happen from the top-left corner
-    self.toView.layer.anchorPoint = CGPointMake(0.0, 0.0);
-    self.fromView.layer.anchorPoint = CGPointMake(0.0, 0.0);
-    
-    // updating the anchor point also moves the position to we have to move the center position to the top-left to compensate
-    self.toView.layer.position = CGPointMake(0.0, 0.0);
-    self.fromView.layer.position = CGPointMake(0.0, 0.0);
-    
-    // add the both views to our view controller
-    [self.container addSubview:self.toView];
-    [self.container addSubview:self.fromView];
-    
     // get the duration of the animation
     // DON'T just type '0.5s' -- the reason why won't make sense until the next post
     // but for now it's important to just follow this approach
-    CGFloat duration = [self transitionDuration:self.transitionContext];
+    self.duration = [self transitionDuration:self.transitionContext];
     
     // perform the animation!
-    [self performPushOffScreenAnimationWithDuration:duration];
+    [self performSlideInOutAnimationWithDuration];
     
 }
 
 // return how many seconds the transiton animation will take
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.3/1.5;
+    // this allows us to change the duration of our transitions
+    if(self.duration != 0.0f) {
+        return self.duration;
+    }
+    
+    return kDuration;
 }
 
 
@@ -106,16 +93,40 @@
 
 #pragma mark - Transition Animations
 
-- (void)performPushOffScreenAnimationWithDuration:(CGFloat)duration
+- (void)performPushOffScreenAnimationWithDuration
 {
+    // set up from 2D transforms that we'll use in the animation
+    CGFloat transforms2D = 3.14159265359;
+    
+    self.offScreenRight = CGAffineTransformMakeRotation(-transforms2D/2);
+    self.offScreenLeft = CGAffineTransformMakeRotation(transforms2D/2);
+    
+    // prepare the toView for the animation
+    self.toView.transform = self.presenting ? self.offScreenRight : self.offScreenLeft;
+    
+    // set the anchor point so that rotations happen from the top-left corner
+    self.toView.layer.anchorPoint = CGPointMake(0.0, 0.0);
+    self.fromView.layer.anchorPoint = CGPointMake(0.0, 0.0);
+    
+    // updating the anchor point also moves the position to we have to move the center position to the top-left to compensate
+    self.toView.layer.position = CGPointMake(0.0, 0.0);
+    self.fromView.layer.position = CGPointMake(0.0, 0.0);
+    
+    // add the both views to our view controller
+    [self.container addSubview:self.toView];
+    [self.container addSubview:self.fromView];
+    
+    // we need to check if we have any custom values for our animations
+    [self setAnimationOptionsWithDelay:kDelay dampling:0.4f velocity:0.8f options:0];
+    
     // we slid both fromView and toView to the left at the same time
     // meaning fromView is pushed off the screen and toView slides into view
     // we also use the block animation usingSpringWithDamping for a little bounce
-    [UIView animateWithDuration:duration
-                          delay:0.0
-         usingSpringWithDamping:0.65
-          initialSpringVelocity:1.0
-                        options:0
+    [UIView animateWithDuration:self.duration
+                          delay:self.delay
+         usingSpringWithDamping:self.damping
+          initialSpringVelocity:self.velocity
+                        options:self.options
                      animations:^{
 
                          // slide fromView off either the left or right edge of the screen
@@ -133,5 +144,56 @@
                      }];
 }
 
+
+- (void)performSlideInOutAnimationWithDuration
+{
+    // When sliding the views horizontally, in and out, figure out whether we are going left or right.
+    BOOL goingRight = (self.toView.frame.origin.x < self.toView.frame.origin.x);
+    
+    CGFloat travelDistance = self.container.bounds.size.width + 16.0f;
+    CGAffineTransform travel = CGAffineTransformMakeTranslation(goingRight ? travelDistance : -travelDistance, 0);
+    
+    [self.container addSubview:self.toView];
+    self.toView.alpha = 0;
+    self.toView.transform = CGAffineTransformInvert(travel);
+    
+    // we need to check if we have any custom values for our animations
+    [self setAnimationOptionsWithDelay:kDelay dampling:0.4f velocity:0.9f options:0];
+    
+    [UIView animateWithDuration:self.duration
+                          delay:self.delay
+         usingSpringWithDamping:self.damping
+          initialSpringVelocity:self.velocity
+                        options:self.options
+                     animations:^{
+                         
+                         self.fromView.transform = travel;
+                         self.fromView.alpha = 0;
+                         self.toView.transform = CGAffineTransformIdentity;
+                         self.toView.alpha = 1;
+                         
+                     } completion:^(BOOL finished) {
+
+                         if(finished) {
+                             self.fromView.transform = CGAffineTransformIdentity;
+                            
+                             // tell our transitionContext object that we've finished animating
+                             [self.transitionContext completeTransition:YES];
+                         }
+                
+                     }];
+}
+
+
+#pragma mark - Animation options setter
+
+- (void)setAnimationOptionsWithDelay:(CGFloat)delay dampling:(CGFloat)dampling velocity:(CGFloat)velocity options:(UIViewAnimationOptions)options
+{
+    // we check if we have custom values for our animations else we use ours
+    self.delay = (self.delay == 0.0f) ? delay : self.delay;
+    self.damping = (self.damping == 0.0f) ? dampling : self.damping;
+    self.velocity = (self.velocity == 0.0f) ? velocity : self.velocity;
+    self.options = (self.options == 0) ? options : self.options;
+}
 
 @end

@@ -12,6 +12,11 @@
 
 @interface JVTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate>
 
+@property (nonatomic) CGFloat duration;
+@property (nonatomic) CGFloat delay;
+@property (nonatomic) CGFloat damping;
+@property (nonatomic) CGFloat velocity;
+@property (nonatomic) UIViewAnimationOptions options;
 
 #pragma mark - UIViewControllerAnimatedTransitioning protocol methods
 
@@ -29,7 +34,9 @@
 
 #pragma mark - Transition Animations
 
-- (void)performPushOffScreenAnimationWithDuration:(CGFloat)duration;
+- (void)performPushOffScreenAnimationWithDuration;
+
+- (void)performSlideInOutAnimationWithDuration;
 
 
 @end
