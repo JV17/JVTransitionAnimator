@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C128BAD1AE6019A001B0B0F /* JVSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C128BAC1AE6019A001B0B0F /* JVSecondViewController.m */; };
 		3C128BB01AE601C4001B0B0F /* JVAppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C128BAF1AE601C4001B0B0F /* JVAppHelper.m */; };
+		3CED99E91AE7E7C300EFD8F5 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 3CED99E81AE7E7C300EFD8F5 /* Images */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -45,6 +46,7 @@
 		3C128BAC1AE6019A001B0B0F /* JVSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVSecondViewController.m; sourceTree = "<group>"; };
 		3C128BAE1AE601C4001B0B0F /* JVAppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVAppHelper.h; sourceTree = "<group>"; };
 		3C128BAF1AE601C4001B0B0F /* JVAppHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVAppHelper.m; sourceTree = "<group>"; };
+		3CED99E81AE7E7C300EFD8F5 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		5E6AD8F309A117E84A027E58 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JVTransitionAnimtor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JVTransitionAnimtor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -138,6 +140,7 @@
 		6003F593195388D20070C39A /* JVTransitionAnimtor */ = {
 			isa = PBXGroup;
 			children = (
+				3CED99E81AE7E7C300EFD8F5 /* Images */,
 				6003F59C195388D20070C39A /* JVAppDelegate.h */,
 				6003F59D195388D20070C39A /* JVAppDelegate.m */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
@@ -286,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CED99E91AE7E7C300EFD8F5 /* Images in Resources */,
 				6003F5A4195388D20070C39A /* Main_iPad.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,

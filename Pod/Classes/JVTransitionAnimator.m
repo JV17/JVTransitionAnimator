@@ -123,11 +123,14 @@ static CGFloat const kDuration = 0.3f/1.5f;
     self.toView.transform = self.presenting ? self.offScreenRight : self.offScreenLeft;
     
     // set the anchor point so that rotations happen from the top-left corner
-    CGPoint oldAnchorPoint = self.toView.layer.anchorPoint;
+    CGPoint oldFromViewAnchorPoint = self.fromView.layer.anchorPoint;
+    CGPoint oldToViewAnchorPoint = self.toView.layer.anchorPoint;
+
     self.toView.layer.anchorPoint = CGPointMake(0.0, 0.0);
     self.fromView.layer.anchorPoint = CGPointMake(0.0, 0.0);
     
-    CGPoint oldPosition = self.toView.layer.position;
+    CGPoint oldFromViewPosition = self.fromView.layer.position;
+    CGPoint oldToViewPosition = self.toView.layer.position;
     // updating the anchor point also moves the position to we have to move the center position to the top-left to compensate
     self.toView.layer.position = CGPointMake(0.0, 0.0);
     self.fromView.layer.position = CGPointMake(0.0, 0.0);
@@ -156,17 +159,17 @@ static CGFloat const kDuration = 0.3f/1.5f;
                          
                      } completion:^(BOOL finished) {
         
-                         if (finished) {
+//                         if (finished) {
 
                              // reseting state for demo purposes
-                             self.fromView.layer.position = oldPosition;
-                             self.fromView.layer.anchorPoint = oldAnchorPoint;
-                             self.toView.layer.position = oldPosition;
-                             self.toView.layer.anchorPoint = oldAnchorPoint;
+                             self.fromView.layer.position = oldFromViewPosition;
+                             self.fromView.layer.anchorPoint = oldFromViewAnchorPoint;
+                             self.toView.layer.position = oldToViewPosition;
+                             self.toView.layer.anchorPoint = oldToViewAnchorPoint;
                              
                              // tell our transitionContext object that we've finished animating
                              [self.transitionContext completeTransition:YES];
-                         }
+//                         }
                          
                      }];
 }
@@ -242,6 +245,7 @@ static CGFloat const kDuration = 0.3f/1.5f;
 - (void)performZoomOutAnimation
 {
     [self.container addSubview:self.toView];
+    self.toView.transform = CGAffineTransformIdentity;
     self.toView.alpha = 0;
     
     [UIView animateWithDuration:self.duration

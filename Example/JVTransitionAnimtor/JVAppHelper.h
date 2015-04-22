@@ -18,4 +18,6 @@
 
 + (void)setGradientBackgroundInView:(UIView *)view withFirstHexColor:(NSString *)firstHexColor andSecondHexColor:(NSString *)secondHexColor;
 
++ (UIImage *)imageWithColor:(UIColor *)color withSize:(CGSize)size;
+
 @end
