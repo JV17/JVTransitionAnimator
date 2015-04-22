@@ -141,7 +141,7 @@ static CGFloat const kDuration = 0.3f/1.5f;
     
     // we need to check if we have any custom values for our animations
     [self setAnimationOptionsWithDelay:kDelay dampling:0.4f velocity:0.8f options:0];
-    
+        
     // we slid both fromView and toView to the left at the same time
     // meaning fromView is pushed off the screen and toView slides into view
     // we also use the block animation usingSpringWithDamping for a little bounce
@@ -156,20 +156,22 @@ static CGFloat const kDuration = 0.3f/1.5f;
                          // depending if we're presenting or dismissing this view
                          self.fromView.transform = self.presenting ? self.offScreenLeft : self.offScreenRight;
                          self.toView.transform = CGAffineTransformIdentity;
+                         self.fromView.alpha = 0.0;
                          
                      } completion:^(BOOL finished) {
         
-//                         if (finished) {
+                         if (finished) {
 
                              // reseting state for demo purposes
                              self.fromView.layer.position = oldFromViewPosition;
                              self.fromView.layer.anchorPoint = oldFromViewAnchorPoint;
                              self.toView.layer.position = oldToViewPosition;
                              self.toView.layer.anchorPoint = oldToViewAnchorPoint;
+                             self.fromView.alpha = 1.0;
                              
                              // tell our transitionContext object that we've finished animating
                              [self.transitionContext completeTransition:YES];
-//                         }
+                         }
                          
                      }];
 }
