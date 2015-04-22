@@ -26,6 +26,11 @@
 @property (nonatomic, strong) NSArray *sliders;
 @property (nonatomic, strong) NSArray *moreLabels;
 
+@property (nonatomic, strong) UILabel *durationLabel;
+@property (nonatomic, strong) UILabel *delayLabel;
+@property (nonatomic, strong) UILabel *dampingLabel;
+@property (nonatomic, strong) UILabel *velocityLabel;
+
 @end
 
 
@@ -53,15 +58,20 @@
                          [UIImage imageNamed:@"expand-black"],
                          [UIImage imageNamed:@"collapse-black"]];
     
-    self.sliders = @[[self slidersWithFrame:CGRectMake(110, 0, CGRectGetWidth(self.view.frame)-140, 45) andSelector:@selector(updateDuration:) andMaxValue:5.0],
-                     [self slidersWithFrame:CGRectMake(110, 0, CGRectGetWidth(self.view.frame)-140, 45) andSelector:@selector(updateDelay:) andMaxValue:5.0],
-                     [self slidersWithFrame:CGRectMake(110, 0, CGRectGetWidth(self.view.frame)-140, 45) andSelector:@selector(updateDamping:) andMaxValue:1.0],
-                     [self slidersWithFrame:CGRectMake(110, 0, CGRectGetWidth(self.view.frame)-140, 45) andSelector:@selector(updateVelocity:) andMaxValue:1.0]];
+    self.sliders = @[[self slidersWithFrame:CGRectMake(140, 0, CGRectGetWidth(self.view.frame)-170, 45) andSelector:@selector(updateDuration:) andMaxValue:5.0],
+                     [self slidersWithFrame:CGRectMake(140, 0, CGRectGetWidth(self.view.frame)-170, 45) andSelector:@selector(updateDelay:) andMaxValue:5.0],
+                     [self slidersWithFrame:CGRectMake(140, 0, CGRectGetWidth(self.view.frame)-170, 45) andSelector:@selector(updateDamping:) andMaxValue:1.0],
+                     [self slidersWithFrame:CGRectMake(140, 0, CGRectGetWidth(self.view.frame)-170, 45) andSelector:@selector(updateVelocity:) andMaxValue:1.0]];
     
-    self.moreLabels = @[[self labelsWithFrame:CGRectMake(10, 0, 100, 45) andText:@"Duration:"],
-                        [self labelsWithFrame:CGRectMake(10, 0, 100, 45) andText:@"Delay:"],
-                        [self labelsWithFrame:CGRectMake(10, 0, 100, 45) andText:@"Damping:"],
-                        [self labelsWithFrame:CGRectMake(10, 0, 100, 45) andText:@"Velocity:"]];
+    self.moreLabels = @[[self labelsWithFrame:CGRectMake(10, 0, 70, 45) andText:@"Duration"],
+                        [self labelsWithFrame:CGRectMake(10, 0, 70, 45) andText:@"Delay"],
+                        [self labelsWithFrame:CGRectMake(10, 0, 75, 45) andText:@"Damping"],
+                        [self labelsWithFrame:CGRectMake(10, 0, 70, 45) andText:@"Velocity"]];
+    
+    self.durationLabel = [self labelsWithFrame:CGRectMake(98, 0, 40, 45) andText:@"0.00"];
+    self.delayLabel = [self labelsWithFrame:CGRectMake(98, 0, 40, 45) andText:@"0.00"];
+    self.dampingLabel = [self labelsWithFrame:CGRectMake(98, 0, 40, 45) andText:@"0.00"];
+    self.velocityLabel = [self labelsWithFrame:CGRectMake(98, 0, 40, 45) andText:@"0.00"];
     
     [self.view addSubview:self.label];
     [self.view addSubview:self.tableView];
@@ -132,10 +142,10 @@
     UISlider *slider = [[UISlider alloc] initWithFrame:frame];
     [slider addTarget:self action:targetAction forControlEvents:UIControlEventValueChanged];
     [slider setBackgroundColor:[UIColor clearColor]];
-    slider.minimumValue = 0.0;
+    slider.minimumValue = 0.00;
     slider.maximumValue = max;
     slider.continuous = YES;
-    slider.value = 0.0;
+    slider.value = 0.00;
     slider.minimumTrackTintColor = [JVAppHelper colorWithHexString:@"4A4A4A"];
     slider.maximumTrackTintColor = [JVAppHelper colorWithHexString:@"C7C7CC"];
     slider.thumbTintColor = [JVAppHelper colorWithHexString:@"F7F7F7"];
@@ -146,7 +156,7 @@
 - (UILabel *)labelsWithFrame:(CGRect)frame andText:(NSString *)text
 {
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
-    label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+    label.font = [UIFont fontWithName:@"HelveticaNeue" size:18];
     label.textColor = [[JVAppHelper colorWithHexString:@"1F1F21"] colorWithAlphaComponent:0.9];
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentLeft;
@@ -260,6 +270,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:self.moreLabels[0]];
+        [cell.contentView addSubview:self.durationLabel];
         [cell.contentView addSubview:self.sliders[0]];
     }
     else if(indexPath.section == 5)
@@ -268,6 +279,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:self.moreLabels[1]];
+        [cell.contentView addSubview:self.delayLabel];
         [cell.contentView addSubview:self.sliders[1]];
     }
     else if(indexPath.section == 6)
@@ -276,6 +288,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:self.moreLabels[2]];
+        [cell.contentView addSubview:self.dampingLabel];
         [cell.contentView addSubview:self.sliders[2]];
     }
     else if(indexPath.section == 7)
@@ -284,6 +297,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:self.moreLabels[3]];
+        [cell.contentView addSubview:self.velocityLabel];
         [cell.contentView addSubview:self.sliders[3]];
     }
     
@@ -429,6 +443,7 @@
 {
     if(slider.value > 0.0)
     {
+        self.durationLabel.text = [NSString stringWithFormat:@"%.2f", slider.value];
         self.transitionAnimator.duration = slider.value;
     }
 }
@@ -437,6 +452,7 @@
 {
     if(slider.value >= 0.0)
     {
+        self.delayLabel.text = [NSString stringWithFormat:@"%.2f", slider.value];
         self.transitionAnimator.delay = slider.value;
     }
 }
@@ -445,6 +461,7 @@
 {
     if(slider.value >= 0.0)
     {
+        self.dampingLabel.text = [NSString stringWithFormat:@"%.2f", slider.value];
         self.transitionAnimator.damping = slider.value;
     }
 }
@@ -453,6 +470,7 @@
 {
     if(slider.value >= 0.0)
     {
+        self.velocityLabel.text = [NSString stringWithFormat:@"%.2f", slider.value];
         self.transitionAnimator.velocity = slider.value;
     }
 }
