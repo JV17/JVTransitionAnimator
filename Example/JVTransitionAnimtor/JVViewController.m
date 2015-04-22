@@ -73,6 +73,7 @@
 - (void)showTransitionAnimation:(UIButton *)button
 {
     self.secondController.transitioningDelegate = self.transitionAnimator;
+    self.transitionAnimator.zoomOutAnimation = YES;
     [self presentViewController:self.secondController animated:YES completion:nil];
 }
 

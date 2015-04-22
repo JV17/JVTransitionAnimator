@@ -54,10 +54,29 @@ static CGFloat const kDuration = 0.3f/1.5f;
     // DON'T just type '0.5s' -- the reason why won't make sense until the next post
     // but for now it's important to just follow this approach
     self.duration = [self transitionDuration:self.transitionContext];
-    
-    // perform the animation!
-    [self preformZoomInAnimation];
-    
+
+    // triggering the type of animation choosed
+    if(self.pushOffScreenAnimation)
+    {
+        [self performPushOffScreenAnimation];
+    }
+    else if(self.slideInOutAnimation)
+    {
+        [self performSlideInOutAnimation];
+    }
+    else if(self.zoomInAnimation)
+    {
+        [self performZoomInAnimation];
+    }
+    else if(self.zoomOutAnimation)
+    {
+        [self performZoomOutAnimation];
+    }
+    else
+    {
+        // we need a default animation
+        [self performSlideInOutAnimation];
+    }
 }
 
 // return how many seconds the transiton animation will take
@@ -184,7 +203,7 @@ static CGFloat const kDuration = 0.3f/1.5f;
 }
 
 
-- (void)preformZoomInAnimation
+- (void)performZoomInAnimation
 {
     [self.container addSubview:self.toView];
     self.toView.alpha = 0;
@@ -210,7 +229,7 @@ static CGFloat const kDuration = 0.3f/1.5f;
 }
 
 
-- (void)preformZoomOutAnimation
+- (void)performZoomOutAnimation
 {
     [self.container addSubview:self.toView];
     self.toView.alpha = 0;

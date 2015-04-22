@@ -18,6 +18,13 @@
 @property (nonatomic) CGFloat velocity;
 @property (nonatomic) UIViewAnimationOptions options;
 
+// triggering animations
+@property (nonatomic) BOOL pushOffScreenAnimation;
+@property (nonatomic) BOOL slideInOutAnimation;
+@property (nonatomic) BOOL zoomInAnimation;
+@property (nonatomic) BOOL zoomOutAnimation;
+
+
 #pragma mark - UIViewControllerAnimatedTransitioning protocol methods
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext;
@@ -38,9 +45,9 @@
 
 - (void)performSlideInOutAnimation;
 
-- (void)preformZoomInAnimation;
+- (void)performZoomInAnimation;
 
-- (void)preformZoomOutAnimation;
+- (void)performZoomOutAnimation;
 
 
 @end
