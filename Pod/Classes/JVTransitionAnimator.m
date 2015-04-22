@@ -123,9 +123,11 @@ static CGFloat const kDuration = 0.3f/1.5f;
     self.toView.transform = self.presenting ? self.offScreenRight : self.offScreenLeft;
     
     // set the anchor point so that rotations happen from the top-left corner
+    CGPoint oldAnchorPoint = self.toView.layer.anchorPoint;
     self.toView.layer.anchorPoint = CGPointMake(0.0, 0.0);
     self.fromView.layer.anchorPoint = CGPointMake(0.0, 0.0);
     
+    CGPoint oldPosition = self.toView.layer.position;
     // updating the anchor point also moves the position to we have to move the center position to the top-left to compensate
     self.toView.layer.position = CGPointMake(0.0, 0.0);
     self.fromView.layer.position = CGPointMake(0.0, 0.0);
@@ -155,6 +157,13 @@ static CGFloat const kDuration = 0.3f/1.5f;
                      } completion:^(BOOL finished) {
         
                          if (finished) {
+
+                             // reseting state for demo purposes
+                             self.fromView.layer.position = oldPosition;
+                             self.fromView.layer.anchorPoint = oldAnchorPoint;
+                             self.toView.layer.position = oldPosition;
+                             self.toView.layer.anchorPoint = oldAnchorPoint;
+                             
                              // tell our transitionContext object that we've finished animating
                              [self.transitionContext completeTransition:YES];
                          }
@@ -194,6 +203,7 @@ static CGFloat const kDuration = 0.3f/1.5f;
 
                          if(finished) {
                              self.fromView.transform = CGAffineTransformIdentity;
+                             self.fromView.alpha = 1;
                             
                              // tell our transitionContext object that we've finished animating
                              [self.transitionContext completeTransition:YES];
