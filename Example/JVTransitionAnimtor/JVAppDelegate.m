@@ -7,6 +7,7 @@
 //
 
 #import "JVAppDelegate.h"
+#import "JVTouchEventsWindow.h"
 
 @implementation JVAppDelegate
 
@@ -41,6 +42,17 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (JVTouchEventsWindow *)window
+{
+    static JVTouchEventsWindow *sharedWindow = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedWindow = [[JVTouchEventsWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    });
+    
+    return sharedWindow;
 }
 
 @end
