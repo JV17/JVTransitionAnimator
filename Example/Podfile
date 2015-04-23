@@ -1,11 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'JVTransitionAnimtor', :exclusive => true do
-  pod "JVTransitionAnimtor", :path => "../"
+target 'JVTransitionAnimator', :exclusive => true do
+  pod "JVTransitionAnimator", :path => "../"
 end
 
 target 'Tests', :exclusive => true do
-  pod "JVTransitionAnimtor", :path => "../"
+  pod "JVTransitionAnimator", :path => "../"
 
   
 end
