@@ -1,4 +1,4 @@
-# JVTransitionAnimator [![Version](https://img.shields.io/cocoapods/v/JVTransitionAnimtor.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimtor) [![License](https://img.shields.io/cocoapods/l/JVTransitionAnimtor.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimtor) [![Platform](https://img.shields.io/cocoapods/p/JVTransitionAnimtor.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimtor)
+# JVTransitionAnimator [![Version](https://img.shields.io/cocoapods/v/JVTransitionAnimator.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimator) [![License](https://img.shields.io/cocoapods/l/JVTransitionAnimator.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimator) [![Platform](https://img.shields.io/cocoapods/p/JVTransitionAnimator.svg?style=flat)](http://cocoapods.org/pods/JVTransitionAnimator)
 
 JVTransitionAnimator is a simple helper framework which allows you to present your View Controllers in a pretty cool way, with the use of Transition Animations. Pretty easy to use and customizable.
 
