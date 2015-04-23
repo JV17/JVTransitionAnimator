@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint JVTransitionAnimtor.podspec' to ensure this is a
+# Be sure to run `pod lib lint JVTransitionAnimator.podspec' to ensure this is a
 # valid spec and remove all comments before submitting the spec.
 #
 # Any lines starting with a # are optional, but encouraged
@@ -8,16 +8,11 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "JVTransitionAnimtor"
+  s.name             = "JVTransitionAnimator"
   s.version          = "0.1.0"
-  s.summary          = "A short description of JVTransitionAnimtor."
-  s.description      = <<-DESC
-                       An optional longer description of JVTransitionAnimtor
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/JVTransitionAnimtor"
+  s.summary          = "JVTransitionAnimator"
+  s.description      = "A simple transition animator that allows to present View Controller in a pretty cool way."
+  s.homepage         = "https://github.com/<GITHUB_USERNAME>/JVTransitionAnimator"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Jorge Valbuena" => "jorgevalbuena2@gmail.com" }
@@ -29,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
-    'JVTransitionAnimtor' => ['Pod/Assets/*.png']
+    'JVTransitionAnimator' => ['Pod/Assets/*.png']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
