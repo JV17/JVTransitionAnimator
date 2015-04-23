@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>JVTransitionAnimator by JV17</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>JVTransitionAnimator</h1>
+        <h2>A simple transition animator  </h2>
+        <a href="https://github.com/JV17/JVTransitionAnimator" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h3>
+<a id="jvtransitionanimator" class="anchor" href="#jvtransitionanimator" aria-hidden="true"><span class="octicon octicon-link"></span></a>JVTransitionAnimator</h3>
+
+<p><a href="http://cocoapods.org/pods/JVTransitionAnimtor"><img src="https://img.shields.io/cocoapods/v/JVTransitionAnimtor.svg?style=flat" alt="Version"></a> 
+<a href="http://cocoapods.org/pods/JVTransitionAnimtor"><img src="https://img.shields.io/cocoapods/l/JVTransitionAnimtor.svg?style=flat" alt="License"></a> 
+<a href="http://cocoapods.org/pods/JVTransitionAnimtor"><img src="https://img.shields.io/cocoapods/p/JVTransitionAnimtor.svg?style=flat" alt="Platform"></a></p>
+
+<p>JVTransitionAnimator is a simple helper framework which allows you to present your View Controllers in a pretty cool way, with the use of Transition Animations. Pretty easy to use and customizable.</p>
+
+<h2>
+<a id="preview-1---pre-defined-animations" class="anchor" href="#preview-1---pre-defined-animations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preview 1 - Pre-defined Animations</h2>
+
+<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=y8fEgyDxRYU?autoplay=1" target="_blank"><img src="Previews/preview1.gif" alt="screenshot-1"></a></p>
+
+<h2>
+<a id="preview-2---custom-animations" class="anchor" href="#preview-2---custom-animations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preview 2 - Custom Animations</h2>
+
+<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=y8fEgyDxRYU?autoplay=1" target="_blank"><img src="Previews/preview2.gif" alt="screenshot-2"></a></p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
+
+<ul>
+<li>Now, just create a JVTransitionAnimator property</li>
+</ul>
+
+<div class="highlight highlight-objc"><pre>- (JVTransitionAnimator *)transitionAnimator
+{
+    <span class="pl-k">if</span>(!_transitionAnimator)
+    {
+        _transitionAnimator = [[JVTransitionAnimator <span class="pl-c1">alloc</span>] <span class="pl-c1">init</span>];
+    }
+
+    <span class="pl-k">return</span> _transitionAnimator;
+}</pre></div>
+
+<ul>
+<li>Tell your View Controller that you want to use your own Transition Animations and the type of Animation you would like to use</li>
+</ul>
+
+<div class="highlight highlight-objc"><pre>    self.secondController.transitioningDelegate = self.transitionAnimator;
+    self.transitionAnimator.pushOffScreenAnimation = <span class="pl-c1">YES</span>;
+    [<span class="pl-v">self</span> <span class="pl-c1">presentViewController:</span><span class="pl-v">self</span>.secondController <span class="pl-c1">animated:</span><span class="pl-c1">YES</span> <span class="pl-c1">completion:</span><span class="pl-c1">nil</span>];</pre></div>
+
+<ul>
+<li>Also, we can futher setup and customize our Transition Animations</li>
+</ul>
+
+<div class="highlight highlight-objc"><pre>    self.secondController.transitioningDelegate = self.transitionAnimator;
+    self.transitionAnimator.pushOffScreenAnimation = <span class="pl-c1">YES</span>;
+
+    <span class="pl-c">// here is the trick if you want longer animations or set a delay or event not bouncing (known as dampling) at all</span>
+    self.transitionAnimator.duration = <span class="pl-c1">1</span>.<span class="pl-c1">0f</span>;
+    self.transitionAnimator.delay = <span class="pl-c1">0</span>.<span class="pl-c1">0f</span>;
+    self.transitionAnimator.damping = <span class="pl-c1">0</span>.<span class="pl-c1">5f</span>;
+    self.transitionAnimator.velocity = <span class="pl-c1">0</span>.<span class="pl-c1">9f</span>;
+
+    [<span class="pl-v">self</span> <span class="pl-c1">presentViewController:</span><span class="pl-v">self</span>.secondController <span class="pl-c1">animated:</span><span class="pl-c1">YES</span> <span class="pl-c1">completion:</span><span class="pl-c1">nil</span>];</pre></div>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>Developed and tested using iOS8+.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>JVTransitionAnimtor is available through <a href="http://cocoapods.org">CocoaPods</a>. To install
+it, simply add the following line to your Podfile:</p>
+
+<div class="highlight highlight-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">"</span>JVTransitionAnimator<span class="pl-pds">"</span></span></pre></div>
+
+<h2>
+<a id="author--support" class="anchor" href="#author--support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author &amp; Support</h2>
+
+<p>Contact me if you find any bugs or potential room for improvements. Jorge Valbuena (<a href="https://github.com/JV17" class="user-mention">@JV17</a>), <a href="mailto:jorgevalbuena2@gmail.com">jorgevalbuena2@gmail.com</a>. BTW! You are welcome to help in supporting this pod or making improvements to it.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>JVTouchEventsWindow is available under the MIT license. See the LICENSE file for more info.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/JV17/JVTransitionAnimator/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/JV17/JVTransitionAnimator/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/JV17/JVTransitionAnimator"></a> is maintained by <a href="https://github.com/JV17">JV17</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
