@@ -12,12 +12,12 @@ Pod::Spec.new do |s|
   s.version          = "0.1.0"
   s.summary          = "JVTransitionAnimator"
   s.description      = "A simple transition animator that allows to present View Controller in a pretty cool way."
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/JVTransitionAnimator"
+  s.homepage         = "https://github.com/JV17/JVTransitionAnimator"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Jorge Valbuena" => "jorgevalbuena2@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/JVTransitionAnimtor.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/JV17/JVTransitionAnimtor.git", :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/JustV17'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true

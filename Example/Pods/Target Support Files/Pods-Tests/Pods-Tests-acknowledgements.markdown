@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## JVTransitionAnimtor
+## JVTransitionAnimator
 
 Copyright (c) 2015 Jorge Valbuena <jorgevalbuena2@gmail.com>
 
