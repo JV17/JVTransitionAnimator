@@ -10,7 +10,7 @@
 Pod::Spec.new do |s|
   s.name             = "JVTransitionAnimator"
   s.version          = "0.1.0"
-  s.summary          = "JVTransitionAnimator"
+  s.summary          = "JVTransitionAnimator it's a simple Transition Animator.'"
   s.description      = "A simple transition animator that allows to present View Controller in a pretty cool way."
   s.homepage         = "https://github.com/JV17/JVTransitionAnimator"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
