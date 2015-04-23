@@ -70,24 +70,24 @@
 <li>Tell your View Controller that you want to use your own Transition Animations and the type of Animation you would like to use</li>
 </ul>
 
-<div class="highlight highlight-objc"><pre>    self.secondController.transitioningDelegate = self.transitionAnimator;
-    self.transitionAnimator.pushOffScreenAnimation = <span class="pl-c1">YES</span>;
-    [<span class="pl-v">self</span> <span class="pl-c1">presentViewController:</span><span class="pl-v">self</span>.secondController <span class="pl-c1">animated:</span><span class="pl-c1">YES</span> <span class="pl-c1">completion:</span><span class="pl-c1">nil</span>];</pre></div>
+<div class="highlight highlight-objc"><pre>self.secondController.transitioningDelegate = self.transitionAnimator;
+self.transitionAnimator.pushOffScreenAnimation = <span class="pl-c1">YES</span>;
+[<span class="pl-v">self</span> <span class="pl-c1">presentViewController:</span><span class="pl-v">self</span>.secondController <span class="pl-c1">animated:</span><span class="pl-c1">YES</span> <span class="pl-c1">completion:</span><span class="pl-c1">nil</span>];</pre></div>
 
 <ul>
 <li>Also, we can futher setup and customize our Transition Animations</li>
 </ul>
 
-<div class="highlight highlight-objc"><pre>    self.secondController.transitioningDelegate = self.transitionAnimator;
-    self.transitionAnimator.pushOffScreenAnimation = <span class="pl-c1">YES</span>;
+<div class="highlight highlight-objc"><pre>self.secondController.transitioningDelegate = self.transitionAnimator;
+self.transitionAnimator.pushOffScreenAnimation = <span class="pl-c1">YES</span>;
 
-    <span class="pl-c">// here is the trick if you want longer animations or set a delay or event not bouncing (known as dampling) at all</span>
-    self.transitionAnimator.duration = <span class="pl-c1">1</span>.<span class="pl-c1">0f</span>;
-    self.transitionAnimator.delay = <span class="pl-c1">0</span>.<span class="pl-c1">0f</span>;
-    self.transitionAnimator.damping = <span class="pl-c1">0</span>.<span class="pl-c1">5f</span>;
-    self.transitionAnimator.velocity = <span class="pl-c1">0</span>.<span class="pl-c1">9f</span>;
+<span class="pl-c">// here is the trick if you want longer animations or set a delay or event not bouncing (known as dampling) at all</span>
+self.transitionAnimator.duration = <span class="pl-c1">1</span>.<span class="pl-c1">0f</span>;
+self.transitionAnimator.delay = <span class="pl-c1">0</span>.<span class="pl-c1">0f</span>;
+self.transitionAnimator.damping = <span class="pl-c1">0</span>.<span class="pl-c1">5f</span>;
+self.transitionAnimator.velocity = <span class="pl-c1">0</span>.<span class="pl-c1">9f</span>;
 
-    [<span class="pl-v">self</span> <span class="pl-c1">presentViewController:</span><span class="pl-v">self</span>.secondController <span class="pl-c1">animated:</span><span class="pl-c1">YES</span> <span class="pl-c1">completion:</span><span class="pl-c1">nil</span>];</pre></div>
+[<span class="pl-v">self</span> <span class="pl-c1">presentViewController:</span><span class="pl-v">self</span>.secondController <span class="pl-c1">animated:</span><span class="pl-c1">YES</span> <span class="pl-c1">completion:</span><span class="pl-c1">nil</span>];</pre></div>
 
 <h2>
 <a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
