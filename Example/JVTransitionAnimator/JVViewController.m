@@ -114,8 +114,8 @@
 {
     if(!_label)
     {
-        _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, self.view.frame.size.width, 40)];
-        _label.font = [UIFont fontWithName:@"HelveticaNeue" size:28];
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, self.view.frame.size.width, 30)];
+        _label.font = [UIFont fontWithName:@"HelveticaNeue" size:26];
         _label.textColor = [UIColor blackColor];
         _label.textAlignment = NSTextAlignmentCenter;
         _label.text = @"JVTransitionAnimator";
@@ -177,7 +177,7 @@
 {
     if(!_tableView)
     {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(self.label.frame)+10, self.view.frame.size.width-20, CGRectGetHeight(self.view.frame)-CGRectGetMaxY(self.label.frame)+50) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(self.label.frame), self.view.frame.size.width-20, CGRectGetHeight(self.view.frame)) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
