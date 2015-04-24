@@ -21,6 +21,7 @@
 // triggering animations
 @property (nonatomic) BOOL pushOffScreenAnimation;
 @property (nonatomic) BOOL slideInOutAnimation;
+@property (nonatomic) BOOL slideUpDownAnimation;
 @property (nonatomic) BOOL zoomInAnimation;
 @property (nonatomic) BOOL zoomOutAnimation;
 
@@ -44,6 +45,8 @@
 - (void)performPushOffScreenAnimation;
 
 - (void)performSlideInOutAnimation;
+
+- (void)performSlideUpDownAnimation;
 
 - (void)performZoomInAnimation;
 

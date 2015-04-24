@@ -56,28 +56,31 @@ static CGFloat const kDuration = 0.3f/1.5f;
     self.duration = [self transitionDuration:self.transitionContext];
 
     // triggering the type of animation choosed
-//    if(self.pushOffScreenAnimation)
-//    {
-//        [self performPushOffScreenAnimation];
-//    }
-//    else if(self.slideInOutAnimation)
-//    {
-//        [self performSlideInOutAnimation];
-//    }
-//    else if(self.zoomInAnimation)
-//    {
-//        [self performZoomInAnimation];
-//    }
-//    else if(self.zoomOutAnimation)
-//    {
-//        [self performZoomOutAnimation];
-//    }
-//    else
-//    {
-//        // we need a default animation
-//        [self performSlideInOutAnimation];
-//    }
-    [self testAnimation];
+    if(self.pushOffScreenAnimation)
+    {
+        [self performPushOffScreenAnimation];
+    }
+    else if(self.slideInOutAnimation)
+    {
+        [self performSlideInOutAnimation];
+    }
+    else if(self.slideUpDownAnimation)
+    {
+        [self performSlideUpDownAnimation];
+    }
+    else if(self.zoomInAnimation)
+    {
+        [self performZoomInAnimation];
+    }
+    else if(self.zoomOutAnimation)
+    {
+        [self performZoomOutAnimation];
+    }
+    else
+    {
+        // we need a default animation
+        [self performSlideInOutAnimation];
+    }
     
 }
 
@@ -217,6 +220,45 @@ static CGFloat const kDuration = 0.3f/1.5f;
 }
 
 
+- (void)performSlideUpDownAnimation
+{
+    CGFloat travelDistance = self.container.bounds.size.height;
+    CGAffineTransform travel = CGAffineTransformMakeTranslation(0, self.presenting ? -travelDistance : travelDistance);
+    
+    [self.container addSubview:self.toView];
+    self.toView.alpha = 0;
+    self.toView.transform = CGAffineTransformInvert(travel);
+    
+    // we need to check if we have any custom values for our animations
+    [self setAnimationOptionsWithDelay:kDelay dampling:0.4f velocity:0.9f options:0];
+    
+    [UIView animateWithDuration:self.duration
+                          delay:self.delay
+         usingSpringWithDamping:self.damping
+          initialSpringVelocity:self.velocity
+                        options:self.options
+                     animations:^{
+                         
+                         self.fromView.transform = travel;
+                         self.fromView.alpha = 0;
+                         self.toView.transform = CGAffineTransformIdentity;
+                         self.toView.alpha = 1;
+                         
+                     } completion:^(BOOL finished) {
+                         
+                         if(finished) {
+                             self.fromView.transform = CGAffineTransformIdentity;
+                             self.fromView.alpha = 1;
+                             
+                             // tell our transitionContext object that we've finished animating
+                             [self.transitionContext completeTransition:YES];
+                         }
+                         
+                     }];
+
+}
+
+
 - (void)performZoomInAnimation
 {
     [self.container addSubview:self.toView];
@@ -276,44 +318,6 @@ static CGFloat const kDuration = 0.3f/1.5f;
                              [self.transitionContext completeTransition:YES];
                          }
     
-                     }];
-}
-
-- (void)testAnimation
-{
-    CGFloat travelDistance = self.container.bounds.size.width + 16.0f;
-    CGAffineTransform travel = CGAffineTransformMakeTranslation(self.presenting ? -travelDistance : travelDistance, 0);
-    
-    [self.container addSubview:self.toView];
-    self.toView.transform = CGAffineTransformMakeScale(0.8, 0.8);
-    self.toView.alpha = 0;
-    self.toView.transform = CGAffineTransformInvert(travel);
-    
-    // we need to check if we have any custom values for our animations
-    [self setAnimationOptionsWithDelay:kDelay dampling:0.4f velocity:0.9f options:0];
-    
-    [UIView animateWithDuration:self.duration
-                          delay:self.delay
-         usingSpringWithDamping:self.damping
-          initialSpringVelocity:self.velocity
-                        options:self.options
-                     animations:^{
-                         
-                         self.fromView.transform = travel;
-                         self.fromView.alpha = 0;
-                         self.toView.transform = CGAffineTransformIdentity;
-                         self.toView.alpha = 1;
-                         
-                     } completion:^(BOOL finished) {
-                         
-                         if(finished) {
-                             self.fromView.transform = CGAffineTransformIdentity;
-                             self.fromView.alpha = 1;
-                             
-                             // tell our transitionContext object that we've finished animating
-                             [self.transitionContext completeTransition:YES];
-                         }
-                         
                      }];
 }
 

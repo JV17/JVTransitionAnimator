@@ -11,6 +11,7 @@
 #import "JVSecondViewController.h"
 
 #define ROW_HEIGHT 45
+#define TABLEVIEW_ROWS_SECTION 9
 
 @interface JVViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -45,16 +46,19 @@
     
     self.labels = @[@"Push Off Animation",
                     @"Slide In/Out Animation",
+                    @"Slide Up/Down Animation",
                     @"Zoom In Animation",
                     @"Zoom Out Animation"];
     
     self.images = @[[UIImage imageNamed:@"export"],
                     [UIImage imageNamed:@"import"],
+                    [UIImage imageNamed:@"updown"],
                     [UIImage imageNamed:@"expand"],
                     [UIImage imageNamed:@"collapse"]];
     
     self.imagesBlack = @[[UIImage imageNamed:@"export-black"],
                          [UIImage imageNamed:@"import-black"],
+                         [UIImage imageNamed:@"updown-black"],
                          [UIImage imageNamed:@"expand-black"],
                          [UIImage imageNamed:@"collapse-black"]];
     
@@ -266,6 +270,12 @@
     }
     else if(indexPath.section == 4)
     {
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"next"]];
+        cell.imageView.image = self.images[4];
+        cell.textLabel.text = self.labels[4];
+    }
+    else if(indexPath.section == 5)
+    {
         cell.selectedBackgroundView = nil;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
@@ -273,7 +283,7 @@
         [cell.contentView addSubview:self.durationLabel];
         [cell.contentView addSubview:self.sliders[0]];
     }
-    else if(indexPath.section == 5)
+    else if(indexPath.section == 6)
     {
         cell.selectedBackgroundView = nil;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -282,7 +292,7 @@
         [cell.contentView addSubview:self.delayLabel];
         [cell.contentView addSubview:self.sliders[1]];
     }
-    else if(indexPath.section == 6)
+    else if(indexPath.section == 7)
     {
         cell.selectedBackgroundView = nil;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -291,7 +301,7 @@
         [cell.contentView addSubview:self.dampingLabel];
         [cell.contentView addSubview:self.sliders[2]];
     }
-    else if(indexPath.section == 7)
+    else if(indexPath.section == 8)
     {
         cell.selectedBackgroundView = nil;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -328,6 +338,11 @@
         cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"next-black"]];
         cell.imageView.image = self.imagesBlack[3];
     }
+    else if(indexPath.section == 4)
+    {
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"next-black"]];
+        cell.imageView.image = self.imagesBlack[4];
+    }
 
 }
 
@@ -355,6 +370,11 @@
         cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"next"]];
         cell.imageView.image = self.images[3];
     }
+    else if(indexPath.section == 4)
+    {
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"next"]];
+        cell.imageView.image = self.images[4];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -365,6 +385,7 @@
     {
         self.secondController.transitioningDelegate = self.transitionAnimator;
         self.transitionAnimator.pushOffScreenAnimation = YES;
+        self.transitionAnimator.slideUpDownAnimation = NO;
         self.transitionAnimator.slideInOutAnimation = NO;
         self.transitionAnimator.zoomInAnimation = NO;
         self.transitionAnimator.zoomOutAnimation = NO;
@@ -374,6 +395,7 @@
     {
         self.secondController.transitioningDelegate = self.transitionAnimator;
         self.transitionAnimator.slideInOutAnimation = YES;
+        self.transitionAnimator.slideUpDownAnimation = NO;
         self.transitionAnimator.pushOffScreenAnimation = NO;
         self.transitionAnimator.zoomInAnimation = NO;
         self.transitionAnimator.zoomOutAnimation = NO;
@@ -382,9 +404,10 @@
     else if(indexPath.section == 2)
     {
         self.secondController.transitioningDelegate = self.transitionAnimator;
+        self.transitionAnimator.slideUpDownAnimation = YES;
         self.transitionAnimator.slideInOutAnimation = NO;
         self.transitionAnimator.pushOffScreenAnimation = NO;
-        self.transitionAnimator.zoomInAnimation = YES;
+        self.transitionAnimator.zoomInAnimation = NO;
         self.transitionAnimator.zoomOutAnimation = NO;
         [self presentViewController:self.secondController animated:YES completion:nil];
     }
@@ -392,6 +415,17 @@
     {
         self.secondController.transitioningDelegate = self.transitionAnimator;
         self.transitionAnimator.slideInOutAnimation = NO;
+        self.transitionAnimator.slideUpDownAnimation = NO;
+        self.transitionAnimator.pushOffScreenAnimation = NO;
+        self.transitionAnimator.zoomInAnimation = YES;
+        self.transitionAnimator.zoomOutAnimation = NO;
+        [self presentViewController:self.secondController animated:YES completion:nil];
+    }
+    else if(indexPath.section == 4)
+    {
+        self.secondController.transitioningDelegate = self.transitionAnimator;
+        self.transitionAnimator.slideInOutAnimation = NO;
+        self.transitionAnimator.slideUpDownAnimation = NO;
         self.transitionAnimator.pushOffScreenAnimation = NO;
         self.transitionAnimator.zoomInAnimation = NO;
         self.transitionAnimator.zoomOutAnimation = YES;
@@ -401,7 +435,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 8;
+    return TABLEVIEW_ROWS_SECTION;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
