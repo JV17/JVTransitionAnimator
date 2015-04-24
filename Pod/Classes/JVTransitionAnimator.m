@@ -179,11 +179,8 @@ static CGFloat const kDuration = 0.3f/1.5f;
 
 - (void)performSlideInOutAnimation
 {
-    // When sliding the views horizontally, in and out, figure out whether we are going left or right.
-    BOOL goingRight = (self.toView.frame.origin.x < self.toView.frame.origin.x);
-    
     CGFloat travelDistance = self.container.bounds.size.width + 16.0f;
-    CGAffineTransform travel = CGAffineTransformMakeTranslation(goingRight ? travelDistance : -travelDistance, 0);
+    CGAffineTransform travel = CGAffineTransformMakeTranslation(self.presenting ? -travelDistance : travelDistance, 0);
     
     [self.container addSubview:self.toView];
     self.toView.alpha = 0;
