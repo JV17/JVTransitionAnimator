@@ -222,6 +222,10 @@ static CGFloat const kDuration = 0.3f/1.5f;
     self.toView.transform = CGAffineTransformMakeScale(0.1, 0.1);
     
     [UIView animateWithDuration:self.duration
+                          delay:self.delay
+         usingSpringWithDamping:self.damping
+          initialSpringVelocity:self.velocity
+                        options:self.options
                      animations:^{
                          
                          self.toView.transform = CGAffineTransformIdentity;
@@ -248,6 +252,8 @@ static CGFloat const kDuration = 0.3f/1.5f;
     self.toView.alpha = 0;
     
     [UIView animateWithDuration:self.duration
+                          delay:self.delay
+                        options:self.options
                      animations:^{
                          
                          self.fromView.transform = CGAffineTransformMakeScale(0.1, 0.1);
