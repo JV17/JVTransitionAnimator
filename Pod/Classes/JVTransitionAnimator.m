@@ -77,6 +77,7 @@ static CGFloat const kDuration = 0.3f/1.5f;
         // we need a default animation
         [self performSlideInOutAnimation];
     }
+    
 }
 
 // return how many seconds the transiton animation will take
@@ -221,6 +222,9 @@ static CGFloat const kDuration = 0.3f/1.5f;
     self.toView.alpha = 0;
     self.toView.transform = CGAffineTransformMakeScale(0.1, 0.1);
     
+    // we need to check if we have any custom values for our animations
+    [self setAnimationOptionsWithDelay:kDelay dampling:0.4f velocity:0.9f options:0];
+    
     [UIView animateWithDuration:self.duration
                           delay:self.delay
          usingSpringWithDamping:self.damping
@@ -250,6 +254,9 @@ static CGFloat const kDuration = 0.3f/1.5f;
     [self.container addSubview:self.toView];
     self.toView.transform = CGAffineTransformIdentity;
     self.toView.alpha = 0;
+    
+    // we need to check if we have any custom values for our animations
+    [self setAnimationOptionsWithDelay:kDelay dampling:1.0f velocity:0.9f options:0];
     
     [UIView animateWithDuration:self.duration
                           delay:self.delay
