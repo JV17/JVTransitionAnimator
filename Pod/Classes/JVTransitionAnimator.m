@@ -11,18 +11,22 @@
 
 @interface JVTransitionAnimator()
 
+// booleans for presenting & interactive
 @property (nonatomic) BOOL presenting;
 @property (nonatomic) BOOL interactive;
 
 @property (nonatomic, strong) id<UIViewControllerContextTransitioning> transitionContext;
 
+// keeping a reference of view controllers from, to and container..
 @property (nonatomic, strong) UIView *container;
 @property (nonatomic, strong) UIView *fromView;
 @property (nonatomic, strong) UIView *toView;
 
+// transform for push on screen animation
 @property (nonatomic) CGAffineTransform offScreenRight;
 @property (nonatomic) CGAffineTransform offScreenLeft;
 
+// pan recognizers for interactive transitions
 @property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *rightGesture;
 @property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *leftGesture;
 
@@ -31,6 +35,7 @@
 
 @implementation JVTransitionAnimator
 
+// constants
 static CGFloat const kDelay = 0.0f;
 static CGFloat const kDuration = 0.3f/1.5f;
 
@@ -174,12 +179,20 @@ static CGFloat const kDuration = 0.3f/1.5f;
 
 - (void)handleGestureRecognizer:(UIScreenEdgePanGestureRecognizer *)pan
 {
+    // enabled interactive transitions must be set to be able to perform interactive animations
     if(!self.enabledInteractiveTransitions) {
         return;
     }
     
+    // fromViewController and toViewController must been set/initialize before performing interactive animations
+    if(!self.fromViewController || !self.toViewController) {
+        @throw [NSException exceptionWithName:NSGenericException reason:@"Please make sure fromViewController and toViewController properties have been set/initialize." userInfo:nil];
+    }
+
+    // getting translation from gesture view
     CGPoint translation = [pan translationInView:pan.view];
-    
+
+    // percentage use for interactive animations
     CGFloat percent = translation.x / -CGRectGetWidth(pan.view.bounds) * 0.5;
     
     if(!self.presenting)
@@ -187,18 +200,21 @@ static CGFloat const kDuration = 0.3f/1.5f;
         percent = translation.x / CGRectGetWidth(pan.view.bounds) * 0.5;
     }
     
-    switch (pan.state) {
+    switch (pan.state)
+    {
         case UIGestureRecognizerStateBegan:
             
+            // we are interacting
             self.interactive = YES;
             
+            // we need to make sure there is a controller to be presented & we are presenting
             if(self.toViewController && self.presenting)
             {
                 [self.fromViewController presentViewController:self.toViewController animated:YES completion:^{
                     self.presenting = NO;
                 }];
             }
-            else if(self.toViewController && !self.presenting)
+            else if(self.toViewController && !self.presenting) // we need to make sure we have a controller to dismiss & we are not preseting
             {
                 [self.toViewController dismissViewControllerAnimated:YES completion:^{
                     self.presenting = YES;
@@ -209,12 +225,14 @@ static CGFloat const kDuration = 0.3f/1.5f;
             
         case UIGestureRecognizerStateChanged:
             
+            // updating interactive transitions based on our percent
             [self updateInteractiveTransition:percent];
             
             break;
             
         default: // Ended, Cancelled, Failed...
             
+            // cancelling all interactions since we received an error
             self.interactive = NO;
             [self finishInteractiveTransition];
             
