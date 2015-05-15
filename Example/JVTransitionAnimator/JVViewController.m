@@ -44,7 +44,7 @@
     // gradient background color
     [JVAppHelper setGradientBackgroundInView:self.view withFirstHexColor:@"FF5E3A" andSecondHexColor:@"FF2A68"];
     
-    self.labels = @[@"Push Off Animation",
+    self.labels = @[@"Push On Animation",
                     @"Slide In/Out Animation",
                     @"Slide Up/Down Animation",
                     @"Zoom In Animation",
@@ -82,6 +82,15 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+//    self.transitionAnimator.fromViewController = self;
+//    self.transitionAnimator.toViewController = self.secondController;
+//    self.secondController.transitioningDelegate = self.transitionAnimator;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -115,15 +124,15 @@
     if(!_label)
     {
         _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, self.view.frame.size.width, 30)];
-        _label.font = [UIFont fontWithName:@"HelveticaNeue" size:26];
+        _label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:24];
         _label.textColor = [UIColor blackColor];
         _label.textAlignment = NSTextAlignmentCenter;
         _label.text = @"JVTransitionAnimator";
         
         _label.layer.shadowColor = [UIColor blackColor].CGColor;
-        _label.layer.shadowOpacity = 0.8;
-        _label.layer.shadowRadius = 4;
-        _label.layer.shadowOffset = CGSizeMake(4.0f, 4.0f);
+        _label.layer.shadowOpacity = 0.4;
+        _label.layer.shadowRadius = 2;
+        _label.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
 
     }
     
@@ -384,7 +393,7 @@
     if(indexPath.section == 0)
     {
         self.secondController.transitioningDelegate = self.transitionAnimator;
-        self.transitionAnimator.pushOffScreenAnimation = YES;
+        self.transitionAnimator.pushOnScreenAnimation = YES;
         self.transitionAnimator.slideUpDownAnimation = NO;
         self.transitionAnimator.slideInOutAnimation = NO;
         self.transitionAnimator.zoomInAnimation = NO;
@@ -396,7 +405,7 @@
         self.secondController.transitioningDelegate = self.transitionAnimator;
         self.transitionAnimator.slideInOutAnimation = YES;
         self.transitionAnimator.slideUpDownAnimation = NO;
-        self.transitionAnimator.pushOffScreenAnimation = NO;
+        self.transitionAnimator.pushOnScreenAnimation = NO;
         self.transitionAnimator.zoomInAnimation = NO;
         self.transitionAnimator.zoomOutAnimation = NO;
         [self presentViewController:self.secondController animated:YES completion:nil];
@@ -406,7 +415,7 @@
         self.secondController.transitioningDelegate = self.transitionAnimator;
         self.transitionAnimator.slideUpDownAnimation = YES;
         self.transitionAnimator.slideInOutAnimation = NO;
-        self.transitionAnimator.pushOffScreenAnimation = NO;
+        self.transitionAnimator.pushOnScreenAnimation = NO;
         self.transitionAnimator.zoomInAnimation = NO;
         self.transitionAnimator.zoomOutAnimation = NO;
         [self presentViewController:self.secondController animated:YES completion:nil];
@@ -416,7 +425,7 @@
         self.secondController.transitioningDelegate = self.transitionAnimator;
         self.transitionAnimator.slideInOutAnimation = NO;
         self.transitionAnimator.slideUpDownAnimation = NO;
-        self.transitionAnimator.pushOffScreenAnimation = NO;
+        self.transitionAnimator.pushOnScreenAnimation = NO;
         self.transitionAnimator.zoomInAnimation = YES;
         self.transitionAnimator.zoomOutAnimation = NO;
         [self presentViewController:self.secondController animated:YES completion:nil];
@@ -426,7 +435,7 @@
         self.secondController.transitioningDelegate = self.transitionAnimator;
         self.transitionAnimator.slideInOutAnimation = NO;
         self.transitionAnimator.slideUpDownAnimation = NO;
-        self.transitionAnimator.pushOffScreenAnimation = NO;
+        self.transitionAnimator.pushOnScreenAnimation = NO;
         self.transitionAnimator.zoomInAnimation = NO;
         self.transitionAnimator.zoomOutAnimation = YES;
         [self presentViewController:self.secondController animated:YES completion:nil];
@@ -478,7 +487,7 @@
     if(slider.value > 0.0)
     {
         self.durationLabel.text = [NSString stringWithFormat:@"%.2f", slider.value];
-        self.transitionAnimator.duration = slider.value;
+        self.transitionAnimator.animationDuration = slider.value;
     }
 }
 
@@ -487,7 +496,7 @@
     if(slider.value >= 0.0)
     {
         self.delayLabel.text = [NSString stringWithFormat:@"%.2f", slider.value];
-        self.transitionAnimator.delay = slider.value;
+        self.transitionAnimator.animationDelay = slider.value;
     }
 }
 
@@ -496,7 +505,7 @@
     if(slider.value >= 0.0)
     {
         self.dampingLabel.text = [NSString stringWithFormat:@"%.2f", slider.value];
-        self.transitionAnimator.damping = slider.value;
+        self.transitionAnimator.animationDamping = slider.value;
     }
 }
 
@@ -505,7 +514,7 @@
     if(slider.value >= 0.0)
     {
         self.velocityLabel.text = [NSString stringWithFormat:@"%.2f", slider.value];
-        self.transitionAnimator.velocity = slider.value;
+        self.transitionAnimator.animationVelocity = slider.value;
     }
 }
 

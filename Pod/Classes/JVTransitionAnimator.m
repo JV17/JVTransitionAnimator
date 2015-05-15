@@ -12,6 +12,7 @@
 @interface JVTransitionAnimator()
 
 @property (nonatomic) BOOL presenting;
+@property (nonatomic) BOOL interactive;
 
 @property (nonatomic, strong) id<UIViewControllerContextTransitioning> transitionContext;
 
@@ -21,6 +22,9 @@
 
 @property (nonatomic) CGAffineTransform offScreenRight;
 @property (nonatomic) CGAffineTransform offScreenLeft;
+
+@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *rightGesture;
+@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *leftGesture;
 
 @end
 
@@ -53,12 +57,12 @@ static CGFloat const kDuration = 0.3f/1.5f;
     // get the duration of the animation
     // DON'T just type '0.5s' -- the reason why won't make sense until the next post
     // but for now it's important to just follow this approach
-    self.duration = [self transitionDuration:self.transitionContext];
+    self.animationDuration = [self transitionDuration:self.transitionContext];
 
     // triggering the type of animation choosed
-    if(self.pushOffScreenAnimation)
+    if(self.pushOnScreenAnimation)
     {
-        [self performPushOffScreenAnimation];
+        [self performPushOnScreenAnimation];
     }
     else if(self.slideInOutAnimation)
     {
@@ -88,8 +92,8 @@ static CGFloat const kDuration = 0.3f/1.5f;
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     // this allows us to change the duration of our transitions
-    if(self.duration != 0.0f) {
-        return self.duration;
+    if(self.animationDuration != 0.0f) {
+        return self.animationDuration;
     }
     
     return kDuration;
@@ -99,7 +103,6 @@ static CGFloat const kDuration = 0.3f/1.5f;
 #pragma mark - UIViewControllerTransitioningDelegate protocol methods
 
 // return the animataor when presenting a viewcontroller
-// remmeber that an animator (or animation controller) is any object that aheres to the UIViewControllerAnimatedTransitioning protocol
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
     self.presenting = YES;
@@ -114,9 +117,116 @@ static CGFloat const kDuration = 0.3f/1.5f;
 }
 
 
+#pragma mark - Interactive Transitions
+
+- (id<UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id<UIViewControllerAnimatedTransitioning>)animator
+{
+    return self.interactive ? self : nil;
+}
+
+- (id<UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<UIViewControllerAnimatedTransitioning>)animator
+{
+    return self.interactive ? self : nil;
+}
+
+
+#pragma mark - Custom getters & setters
+
+- (void)setFromViewController:(UIViewController *)fromViewController
+{
+    _fromViewController = fromViewController;
+    
+    // only enabled intereactive transition if user wants to
+    if(self.enabledInteractiveTransitions)
+    {
+        // by default in first launch we need it set to true
+        self.presenting = YES;
+        
+        // adding gestures
+        [self.fromViewController.view.window addGestureRecognizer:self.rightGesture];
+        [self.fromViewController.view.window addGestureRecognizer:self.leftGesture];
+    }
+}
+
+- (UIScreenEdgePanGestureRecognizer *)rightGesture
+{
+    if(!_rightGesture)
+    {
+        _rightGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        _rightGesture.edges = UIRectEdgeRight;
+    }
+    
+    return _rightGesture;
+}
+
+- (UIScreenEdgePanGestureRecognizer *)leftGesture
+{
+    if(!_leftGesture)
+    {
+        _leftGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        _leftGesture.edges = UIRectEdgeLeft;
+    }
+    
+    return _leftGesture;
+}
+
+#pragma mark - Gesture Recognizer
+
+- (void)handleGestureRecognizer:(UIScreenEdgePanGestureRecognizer *)pan
+{
+    if(!self.enabledInteractiveTransitions) {
+        return;
+    }
+    
+    CGPoint translation = [pan translationInView:pan.view];
+    
+    CGFloat percent = translation.x / -CGRectGetWidth(pan.view.bounds) * 0.5;
+    
+    if(!self.presenting)
+    {
+        percent = translation.x / CGRectGetWidth(pan.view.bounds) * 0.5;
+    }
+    
+    switch (pan.state) {
+        case UIGestureRecognizerStateBegan:
+            
+            self.interactive = YES;
+            
+            if(self.toViewController && self.presenting)
+            {
+                [self.fromViewController presentViewController:self.toViewController animated:YES completion:^{
+                    self.presenting = NO;
+                }];
+            }
+            else if(self.toViewController && !self.presenting)
+            {
+                [self.toViewController dismissViewControllerAnimated:YES completion:^{
+                    self.presenting = YES;
+                }];
+            }
+            
+            break;
+            
+        case UIGestureRecognizerStateChanged:
+            
+            [self updateInteractiveTransition:percent];
+            
+            break;
+            
+        default: // Ended, Cancelled, Failed...
+            
+            self.interactive = NO;
+            [self finishInteractiveTransition];
+            
+            break;
+    }
+        
+}
+
+
 #pragma mark - Transition Animations
 
-- (void)performPushOffScreenAnimation
+- (void)performPushOnScreenAnimation
 {
     // set up from 2D transforms that we'll use in the animation
     CGFloat transforms2D = 3.14159265359;
@@ -141,27 +251,28 @@ static CGFloat const kDuration = 0.3f/1.5f;
     self.fromView.layer.position = CGPointMake(0.0, 0.0);
     
     // add the both views to our view controller
-    [self.container addSubview:self.toView];
     [self.container addSubview:self.fromView];
+    [self.container addSubview:self.toView];
     
     // we need to check if we have any custom values for our animations
     [self setAnimationOptionsWithDelay:kDelay dampling:0.4f velocity:0.8f options:0];
-        
+    
     // we slid both fromView and toView to the left at the same time
     // meaning fromView is pushed off the screen and toView slides into view
     // we also use the block animation usingSpringWithDamping for a little bounce
-    [UIView animateWithDuration:self.duration
-                          delay:self.delay
-         usingSpringWithDamping:self.damping
-          initialSpringVelocity:self.velocity
-                        options:self.options
+    [UIView animateWithDuration:self.animationDuration
+                          delay:self.animationDelay
+         usingSpringWithDamping:self.animationDamping
+          initialSpringVelocity:self.animationVelocity
+                        options:self.animationOptions
                      animations:^{
 
                          // slide fromView off either the left or right edge of the screen
                          // depending if we're presenting or dismissing this view
-                         self.fromView.transform = self.presenting ? self.offScreenLeft : self.offScreenRight;
+                         // self.fromView.transform = self.presenting ? self.offScreenLeft : self.offScreenRight;
                          self.toView.transform = CGAffineTransformIdentity;
-                         self.fromView.alpha = 0.0;
+                         self.toView.alpha = 1.0;
+                         self.fromView.alpha = 0.2;
                          
                      } completion:^(BOOL finished) {
         
@@ -184,25 +295,25 @@ static CGFloat const kDuration = 0.3f/1.5f;
 
 - (void)performSlideInOutAnimation
 {
-    CGFloat travelDistance = self.container.bounds.size.width + 16.0f;
+    CGFloat travelDistance = self.container.bounds.size.width;
     CGAffineTransform travel = CGAffineTransformMakeTranslation(self.presenting ? -travelDistance : travelDistance, 0);
+    CGAffineTransform travel2 = CGAffineTransformMakeTranslation(self.presenting ? -travelDistance/4 : travelDistance/4, 0);
     
     [self.container addSubview:self.toView];
-    self.toView.alpha = 0;
     self.toView.transform = CGAffineTransformInvert(travel);
     
     // we need to check if we have any custom values for our animations
     [self setAnimationOptionsWithDelay:kDelay dampling:0.4f velocity:0.9f options:0];
     
-    [UIView animateWithDuration:self.duration
-                          delay:self.delay
-         usingSpringWithDamping:self.damping
-          initialSpringVelocity:self.velocity
-                        options:self.options
+    [UIView animateWithDuration:self.animationDuration
+                          delay:self.animationDelay
+         usingSpringWithDamping:self.animationDamping
+          initialSpringVelocity:self.animationVelocity
+                        options:self.animationOptions
                      animations:^{
                          
-                         self.fromView.transform = travel;
-                         self.fromView.alpha = 0;
+                         self.fromView.transform = travel2;
+                         self.fromView.alpha = 0.2;
                          self.toView.transform = CGAffineTransformIdentity;
                          self.toView.alpha = 1;
                          
@@ -224,23 +335,23 @@ static CGFloat const kDuration = 0.3f/1.5f;
 {
     CGFloat travelDistance = self.container.bounds.size.height;
     CGAffineTransform travel = CGAffineTransformMakeTranslation(0, self.presenting ? -travelDistance : travelDistance);
+    CGAffineTransform travel2 = CGAffineTransformMakeTranslation(0, self.presenting ? -travelDistance/4 : travelDistance/4);
     
     [self.container addSubview:self.toView];
-    self.toView.alpha = 0;
     self.toView.transform = CGAffineTransformInvert(travel);
     
     // we need to check if we have any custom values for our animations
     [self setAnimationOptionsWithDelay:kDelay dampling:0.4f velocity:0.9f options:0];
     
-    [UIView animateWithDuration:self.duration
-                          delay:self.delay
-         usingSpringWithDamping:self.damping
-          initialSpringVelocity:self.velocity
-                        options:self.options
+    [UIView animateWithDuration:self.animationDuration
+                          delay:self.animationDelay
+         usingSpringWithDamping:self.animationDamping
+          initialSpringVelocity:self.animationVelocity
+                        options:self.animationOptions
                      animations:^{
                          
-                         self.fromView.transform = travel;
-                         self.fromView.alpha = 0;
+                         self.fromView.transform = travel2;
+                         self.fromView.alpha = 0.2;
                          self.toView.transform = CGAffineTransformIdentity;
                          self.toView.alpha = 1;
                          
@@ -262,17 +373,16 @@ static CGFloat const kDuration = 0.3f/1.5f;
 - (void)performZoomInAnimation
 {
     [self.container addSubview:self.toView];
-    self.toView.alpha = 0;
     self.toView.transform = CGAffineTransformMakeScale(0.1, 0.1);
     
     // we need to check if we have any custom values for our animations
     [self setAnimationOptionsWithDelay:kDelay dampling:0.4f velocity:0.9f options:0];
     
-    [UIView animateWithDuration:self.duration
-                          delay:self.delay
-         usingSpringWithDamping:self.damping
-          initialSpringVelocity:self.velocity
-                        options:self.options
+    [UIView animateWithDuration:self.animationDuration
+                          delay:self.animationDelay
+         usingSpringWithDamping:self.animationDamping
+          initialSpringVelocity:self.animationVelocity
+                        options:self.animationOptions
                      animations:^{
                          
                          self.toView.transform = CGAffineTransformIdentity;
@@ -301,12 +411,13 @@ static CGFloat const kDuration = 0.3f/1.5f;
     // we need to check if we have any custom values for our animations
     [self setAnimationOptionsWithDelay:kDelay dampling:1.0f velocity:0.9f options:0];
     
-    [UIView animateWithDuration:self.duration
-                          delay:self.delay
-                        options:self.options
+    [UIView animateWithDuration:self.animationDuration
+                          delay:self.animationDelay
+                        options:self.animationOptions
                      animations:^{
                          
                          self.fromView.transform = CGAffineTransformMakeScale(0.1, 0.1);
+                         self.fromView.alpha = 0;
                          self.toView.alpha = 1;
                          
                      } completion:^(BOOL finished) {
@@ -327,10 +438,10 @@ static CGFloat const kDuration = 0.3f/1.5f;
 - (void)setAnimationOptionsWithDelay:(CGFloat)delay dampling:(CGFloat)dampling velocity:(CGFloat)velocity options:(UIViewAnimationOptions)options
 {
     // we check if we have custom values for our animations else we use ours
-    self.delay = (self.delay == 0.0f) ? delay : self.delay;
-    self.damping = (self.damping == 0.0f) ? dampling : self.damping;
-    self.velocity = (self.velocity == 0.0f) ? velocity : self.velocity;
-    self.options = (self.options == 0) ? options : self.options;
+    self.animationDelay = (self.animationDelay == 0.0f) ? delay : self.animationDelay;
+    self.animationDamping = (self.animationDamping == 0.0f) ? dampling : self.animationDamping;
+    self.animationVelocity = (self.animationVelocity == 0.0f) ? velocity : self.animationVelocity;
+    self.animationOptions = (self.animationOptions == 0) ? options : self.animationOptions;
 }
 
 @end
