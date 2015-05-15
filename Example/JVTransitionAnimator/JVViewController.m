@@ -86,9 +86,11 @@
 {
     [super viewDidAppear:animated];
     
-//    self.transitionAnimator.fromViewController = self;
-//    self.transitionAnimator.toViewController = self.secondController;
-//    self.secondController.transitioningDelegate = self.transitionAnimator;
+    self.transitionAnimator.fromViewController = self;
+    self.transitionAnimator.toViewController = self.secondController;
+    self.transitionAnimator.enabledInteractiveTransitions = YES;
+    self.transitionAnimator.slideUpDownAnimation = YES;
+    self.secondController.transitioningDelegate = self.transitionAnimator;
 }
 
 - (void)didReceiveMemoryWarning
@@ -196,8 +198,8 @@
             _tableView.layoutMargins = UIEdgeInsetsZero;
         }
         
-        _tableView.bounces = YES;
-        _tableView.scrollEnabled = YES;
+        _tableView.bounces = NO;
+        _tableView.scrollEnabled = NO;
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }

@@ -29,6 +29,11 @@
 // pan recognizers for interactive transitions
 @property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *rightGesture;
 @property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *leftGesture;
+@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *upGesture;
+@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *downGesture;
+
+// percentage use for interactive animations
+@property (nonatomic) CGFloat percent;
 
 @end
 
@@ -141,15 +146,36 @@ static CGFloat const kDuration = 0.3f/1.5f;
 {
     _fromViewController = fromViewController;
     
-    // only enabled intereactive transition if user wants to
-    if(self.enabledInteractiveTransitions)
+    // by default in first launch we need it set to true
+    self.presenting = YES;
+    
+    // adding gestures
+    if(self.slideUpDownAnimation)
     {
-        // by default in first launch we need it set to true
-        self.presenting = YES;
-        
-        // adding gestures
+        [self.fromViewController.view.window addGestureRecognizer:self.upGesture];
+        [self.fromViewController.view.window addGestureRecognizer:self.downGesture];
+    }
+    else
+    {
         [self.fromViewController.view.window addGestureRecognizer:self.rightGesture];
         [self.fromViewController.view.window addGestureRecognizer:self.leftGesture];
+    }
+}
+
+- (void)setSlideUpDownAnimation:(BOOL)slideUpDownAnimation
+{
+    _slideUpDownAnimation = slideUpDownAnimation;
+    
+    // by default in first launch we need it set to true
+    self.presenting = YES;
+    
+    if(self.slideUpDownAnimation)
+    {
+        // adding gestures
+        [self.fromViewController.view.window addGestureRecognizer:self.upGesture];
+        [self.fromViewController.view.window addGestureRecognizer:self.downGesture];
+        [self.fromViewController.view.window removeGestureRecognizer:self.rightGesture];
+        [self.fromViewController.view.window removeGestureRecognizer:self.leftGesture];
     }
 }
 
@@ -175,12 +201,41 @@ static CGFloat const kDuration = 0.3f/1.5f;
     return _leftGesture;
 }
 
+- (UIScreenEdgePanGestureRecognizer *)upGesture
+{
+    if(!_upGesture)
+    {
+        _upGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        _upGesture.edges = UIRectEdgeTop;
+    }
+    
+    return _upGesture;
+}
+
+- (UIScreenEdgePanGestureRecognizer *)downGesture
+{
+    if(!_downGesture)
+    {
+        _downGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
+        _downGesture.edges = UIRectEdgeBottom;
+    }
+    
+    return _downGesture;
+}
+
 #pragma mark - Gesture Recognizer
 
 - (void)handleGestureRecognizer:(UIScreenEdgePanGestureRecognizer *)pan
 {
     // enabled interactive transitions must be set to be able to perform interactive animations
-    if(!self.enabledInteractiveTransitions) {
+    if(!self.enabledInteractiveTransitions || self.zoomInAnimation || self.zoomOutAnimation) {
+        NSLog(@"JVTransitionAnimator: Interactive Transition are not anabled or available for Zoom IN/OUT animations!");
+        return;
+    }
+    
+    // TODO: remove this after implementation is finished!
+    if(self.slideUpDownAnimation) {
+        NSLog(@"JVTransitionAnimator: Interactive Transition are not available yet for Slide UP/DOWN animations!");
         return;
     }
     
@@ -192,12 +247,27 @@ static CGFloat const kDuration = 0.3f/1.5f;
     // getting translation from gesture view
     CGPoint translation = [pan translationInView:pan.view];
 
-    // percentage use for interactive animations
-    CGFloat percent = translation.x / -CGRectGetWidth(pan.view.bounds) * 0.5;
-    
-    if(!self.presenting)
+    if(self.slideUpDownAnimation)
     {
-        percent = translation.x / CGRectGetWidth(pan.view.bounds) * 0.5;
+        if(self.presenting)
+        {
+            self.percent = translation.y / -CGRectGetHeight(pan.view.bounds) * 1.9;
+        }
+        else
+        {
+            self.percent = translation.y / CGRectGetHeight(pan.view.bounds) * 1.5;
+        }
+    }
+    else
+    {
+        if(self.presenting)
+        {
+            self.percent = translation.x / -CGRectGetWidth(pan.view.bounds) * 0.5;
+        }
+        else
+        {
+            self.percent = translation.x / CGRectGetWidth(pan.view.bounds) * 0.5;
+        }
     }
     
     switch (pan.state)
@@ -226,7 +296,7 @@ static CGFloat const kDuration = 0.3f/1.5f;
         case UIGestureRecognizerStateChanged:
             
             // updating interactive transitions based on our percent
-            [self updateInteractiveTransition:percent];
+            [self updateInteractiveTransition:self.percent];
             
             break;
             
