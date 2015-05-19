@@ -152,8 +152,9 @@ static CGFloat const kDuration = 0.3f/1.5f;
     // adding gestures
     if(self.slideUpDownAnimation)
     {
-        [self.fromViewController.view.window addGestureRecognizer:self.upGesture];
-        [self.fromViewController.view.window addGestureRecognizer:self.downGesture];
+        // TODO: Remove this when implementation is finish
+        // [self.fromViewController.view.window addGestureRecognizer:self.upGesture];
+        // [self.fromViewController.view.window addGestureRecognizer:self.downGesture];
     }
     else
     {
@@ -171,11 +172,12 @@ static CGFloat const kDuration = 0.3f/1.5f;
     
     if(self.slideUpDownAnimation)
     {
+        // TODO: Remove this when implementation is finish
         // adding gestures
-        [self.fromViewController.view.window addGestureRecognizer:self.upGesture];
-        [self.fromViewController.view.window addGestureRecognizer:self.downGesture];
-        [self.fromViewController.view.window removeGestureRecognizer:self.rightGesture];
-        [self.fromViewController.view.window removeGestureRecognizer:self.leftGesture];
+        // [self.fromViewController.view.window addGestureRecognizer:self.upGesture];
+        // [self.fromViewController.view.window addGestureRecognizer:self.downGesture];
+        // [self.fromViewController.view.window removeGestureRecognizer:self.rightGesture];
+        // [self.fromViewController.view.window removeGestureRecognizer:self.leftGesture];
     }
 }
 
@@ -251,7 +253,7 @@ static CGFloat const kDuration = 0.3f/1.5f;
     {
         if(self.presenting)
         {
-            self.percent = translation.y / -CGRectGetHeight(pan.view.bounds) * 1.9;
+            self.percent = translation.y / -CGRectGetHeight(pan.view.bounds) * 0.9;
         }
         else
         {
