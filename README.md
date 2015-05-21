@@ -33,24 +33,35 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 * Tell your View Controller that you want to use your own Transition Animations and the type of Animation you would like to use
 
 ```objc
+self.transitionAnimator.slideInOutAnimation = YES;
 self.secondController.transitioningDelegate = self.transitionAnimator;
-self.transitionAnimator.pushOffScreenAnimation = YES;
 [self presentViewController:self.secondController animated:YES completion:nil];
 ```
 
-* Also, we can futher setup and customize our Transition Animations
+* To enabled interactive transitions you do this, for example in the viewDidAppear of your UIViewController. 
 
 ```objc
-self.secondController.transitioningDelegate = self.transitionAnimator;
-self.transitionAnimator.pushOffScreenAnimation = YES;
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 
+    // we need to tell our transition animator the current view controller & the new controller to be pushed
+    self.transitionAnimator.fromViewController = self;
+    self.transitionAnimator.toViewController = self.secondController;
+
+    // enabling interactive transitions
+    self.transitionAnimator.enabledInteractiveTransitions = YES;
+}
+```
+
+* Then, we can futher setup and customize our Transition Animations
+
+```objc
 // here is the trick if you want longer animations or set a delay or event not bouncing (known as dampling) at all
 self.transitionAnimator.duration = 1.0f;
 self.transitionAnimator.delay = 0.0f;
 self.transitionAnimator.damping = 0.5f;
 self.transitionAnimator.velocity = 0.9f;
-
-[self presentViewController:self.secondController animated:YES completion:nil];
 ```
 
 ## Requirements
