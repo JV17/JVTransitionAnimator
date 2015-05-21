@@ -4,11 +4,11 @@ JVTransitionAnimator is a simple helper framework which allows you to present yo
 
 ## Previews
 
-###### Custom Animations
+###### • Custom Animations
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=6LySLa1raXk?autoplay=1" target="_blank">![screenshot-1](Previews/jvtransition.preview1.gif)</a>
 
-###### Pre-defined Animations
+###### • Pre-defined Animations
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=wwb_7fKS7F0?autoplay=1" target="_blank">![screenshot-2](Previews/jvtransition.preview3.gif)</a>
 
