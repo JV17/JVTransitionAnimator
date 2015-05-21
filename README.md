@@ -2,13 +2,15 @@
 
 JVTransitionAnimator is a simple helper framework which allows you to present your View Controllers in a pretty cool way, with the use of Transition Animations. Pretty easy to use and customizable.
 
-## Preview 1 - Pre-defined Animations
+## Previews
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=y8fEgyDxRYU?autoplay=1" target="_blank">![screenshot-1](Previews/preview1.gif)</a>
+###### Custom Animations
 
-## Preview 2 - Custom Animations
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=6LySLa1raXk?autoplay=1" target="_blank">![screenshot-1](Previews/jvtransition.preview1.gif)</a>
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=y8fEgyDxRYU?autoplay=1" target="_blank">![screenshot-2](Previews/preview2.gif)</a>
+###### Pre-defined Animations
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=wwb_7fKS7F0?autoplay=1" target="_blank">![screenshot-2](Previews/jvtransition.preview3.gif)</a>
 
 ## Usage
 

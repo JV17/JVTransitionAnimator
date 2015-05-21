@@ -89,7 +89,7 @@
     self.transitionAnimator.fromViewController = self;
     self.transitionAnimator.toViewController = self.secondController;
     self.transitionAnimator.enabledInteractiveTransitions = YES;
-    self.transitionAnimator.slideUpDownAnimation = YES;
+    self.transitionAnimator.slideInOutAnimation = YES;
     self.secondController.transitioningDelegate = self.transitionAnimator;
 }
 
