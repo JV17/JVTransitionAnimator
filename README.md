@@ -16,7 +16,7 @@ JVTransitionAnimator is a simple helper framework which allows you to present yo
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-* Now, just create a JVTransitionAnimator property
+* Now, just create a JVTransitionAnimator property.
 
 ```objc
 - (JVTransitionAnimator *)transitionAnimator
@@ -30,15 +30,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 }
 ```
 
-* Tell your View Controller that you want to use your own Transition Animations and the type of Animation you would like to use
-
-```objc
-self.transitionAnimator.slideInOutAnimation = YES;
-self.secondController.transitioningDelegate = self.transitionAnimator;
-[self presentViewController:self.secondController animated:YES completion:nil];
-```
-
-* To enabled interactive transitions you do this, for example in the viewDidAppear of your UIViewController. 
+* To enabled interactive transitions you do this, for example, in the viewDidAppear of your UIViewController. Also, we need to set our transition delegate.
 
 ```objc
 - (void)viewDidAppear:(BOOL)animated
@@ -51,10 +43,14 @@ self.secondController.transitioningDelegate = self.transitionAnimator;
 
     // enabling interactive transitions
     self.transitionAnimator.enabledInteractiveTransitions = YES;
+
+    // also don't forget to tell the new UIViewController to be presented that we will be using our animator & choose the animation
+    self.transitionAnimator.slideInOutAnimation = YES;
+    self.secondController.transitioningDelegate = self.transitionAnimator;
 }
 ```
 
-* Then, we can futher setup and customize our Transition Animations
+* Then, we can further setup and customize our Transition Animations.
 
 ```objc
 // here is the trick if you want longer animations or set a delay or event not bouncing (known as dampling) at all
@@ -62,6 +58,13 @@ self.transitionAnimator.duration = 1.0f;
 self.transitionAnimator.delay = 0.0f;
 self.transitionAnimator.damping = 0.5f;
 self.transitionAnimator.velocity = 0.9f;
+```
+
+* Finally, to trigger transitions we just need to make a simple presentViewController function call.
+
+```objc
+// whenever you want to present the new view controller animated
+[self presentViewController:self.secondController animated:YES completion:nil];
 ```
 
 ## Requirements
