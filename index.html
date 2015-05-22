@@ -56,7 +56,7 @@
 <p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
 
 <ul>
-<li>Now, just create a JVTransitionAnimator property</li>
+<li>Now, just create a JVTransitionAnimator property.</li>
 </ul>
 
 <div class="highlight highlight-objc"><pre>- (JVTransitionAnimator *)transitionAnimator
@@ -70,26 +70,40 @@
 }</pre></div>
 
 <ul>
-<li>Tell your View Controller that you want to use your own Transition Animations and the type of Animation you would like to use</li>
+<li>To enabled interactive transitions you do this, for example, in the viewDidAppear of your UIViewController. Also, we need to set our transition delegate.</li>
 </ul>
 
-<div class="highlight highlight-objc"><pre>self.secondController.transitioningDelegate = self.transitionAnimator;
-self.transitionAnimator.pushOffScreenAnimation = <span class="pl-c1">YES</span>;
-[<span class="pl-v">self</span> <span class="pl-c1">presentViewController:</span><span class="pl-v">self</span>.secondController <span class="pl-c1">animated:</span><span class="pl-c1">YES</span> <span class="pl-c1">completion:</span><span class="pl-c1">nil</span>];</pre></div>
+<div class="highlight highlight-objc"><pre>- (<span class="pl-k">void</span>)viewDidAppear:(<span class="pl-k">BOOL</span>)animated
+{
+    [<span class="pl-v">super</span> <span class="pl-c1">viewDidAppear:</span>animated];
+
+    <span class="pl-c">// we need to tell our transition animator the current view controller &amp; the new controller to be pushed</span>
+    self.<span class="pl-smi">transitionAnimator</span>.<span class="pl-smi">fromViewController</span> = self;
+    self.<span class="pl-smi">transitionAnimator</span>.<span class="pl-smi">toViewController</span> = self.<span class="pl-smi">secondController</span>;
+
+    <span class="pl-c">// enabling interactive transitions</span>
+    self.<span class="pl-smi">transitionAnimator</span>.<span class="pl-smi">enabledInteractiveTransitions</span> = <span class="pl-c1">YES</span>;
+
+    <span class="pl-c">// also don't forget to tell the new UIViewController to be presented that we will be using our animator &amp; choose the animation</span>
+    self.<span class="pl-smi">transitionAnimator</span>.<span class="pl-smi">slideInOutAnimation</span> = <span class="pl-c1">YES</span>;
+    self.<span class="pl-smi">secondController</span>.<span class="pl-smi">transitioningDelegate</span> = self.<span class="pl-smi">transitionAnimator</span>;
+}</pre></div>
 
 <ul>
-<li>Also, we can futher setup and customize our Transition Animations</li>
+<li>Then, we can further setup and customize our Transition Animations.</li>
 </ul>
 
-<div class="highlight highlight-objc"><pre>self.secondController.transitioningDelegate = self.transitionAnimator;
-self.transitionAnimator.pushOffScreenAnimation = <span class="pl-c1">YES</span>;
-
-<span class="pl-c">// here is the trick if you want longer animations or set a delay or event not bouncing (known as dampling) at all</span>
+<div class="highlight highlight-objc"><pre><span class="pl-c">// here is the trick if you want longer animations or set a delay or event not bouncing (known as dampling) at all</span>
 self.transitionAnimator.duration = <span class="pl-c1">1</span>.<span class="pl-c1">0f</span>;
 self.transitionAnimator.delay = <span class="pl-c1">0</span>.<span class="pl-c1">0f</span>;
 self.transitionAnimator.damping = <span class="pl-c1">0</span>.<span class="pl-c1">5f</span>;
-self.transitionAnimator.velocity = <span class="pl-c1">0</span>.<span class="pl-c1">9f</span>;
+self.transitionAnimator.velocity = <span class="pl-c1">0</span>.<span class="pl-c1">9f</span>;</pre></div>
 
+<ul>
+<li>Finally, to trigger transitions we just need to make a simple presentViewController function call.</li>
+</ul>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// whenever you want to present the new view controller animated</span>
 [<span class="pl-v">self</span> <span class="pl-c1">presentViewController:</span><span class="pl-v">self</span>.secondController <span class="pl-c1">animated:</span><span class="pl-c1">YES</span> <span class="pl-c1">completion:</span><span class="pl-c1">nil</span>];</pre></div>
 
 <h2>
