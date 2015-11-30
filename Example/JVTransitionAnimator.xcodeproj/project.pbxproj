@@ -587,6 +587,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JVTransitionAnimator/JVTransitionAnimator-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JVTransitionAnimator/JVTransitionAnimator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = JVTransitionAnimator;
 				PROVISIONING_PROFILE = "";
@@ -605,6 +606,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JVTransitionAnimator/JVTransitionAnimator-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JVTransitionAnimator/JVTransitionAnimator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = JVTransitionAnimator;
 				PROVISIONING_PROFILE = "";
