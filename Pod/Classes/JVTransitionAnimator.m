@@ -150,7 +150,7 @@ static CGFloat const kTransform2D = 3.14159265359;
     
     self.presenting = YES;
 
-    if(self.slideUpDownAnimation)
+    if (self.slideUpDownAnimation)
     {
         // TODO: Remove this when implementation is finish
         // [self.fromViewController.view.window addGestureRecognizer:self.upGesture];
@@ -170,7 +170,7 @@ static CGFloat const kTransform2D = 3.14159265359;
     
     self.presenting = YES;
     
-    if(self.slideUpDownAnimation)
+    if (self.slideUpDownAnimation)
     {
         // TODO: Remove this when implementation is finish
         // adding gestures
@@ -184,7 +184,7 @@ static CGFloat const kTransform2D = 3.14159265359;
 
 - (UIScreenEdgePanGestureRecognizer *)rightGesture
 {
-    if(!_rightGesture)
+    if (!_rightGesture)
     {
         _rightGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
         _rightGesture.edges = UIRectEdgeRight;
@@ -196,7 +196,7 @@ static CGFloat const kTransform2D = 3.14159265359;
 
 - (UIScreenEdgePanGestureRecognizer *)leftGesture
 {
-    if(!_leftGesture)
+    if (!_leftGesture)
     {
         _leftGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
         _leftGesture.edges = UIRectEdgeLeft;
@@ -208,7 +208,7 @@ static CGFloat const kTransform2D = 3.14159265359;
 
 - (UIScreenEdgePanGestureRecognizer *)upGesture
 {
-    if(!_upGesture)
+    if (!_upGesture)
     {
         _upGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
         _upGesture.edges = UIRectEdgeTop;
@@ -220,7 +220,7 @@ static CGFloat const kTransform2D = 3.14159265359;
 
 - (UIScreenEdgePanGestureRecognizer *)downGesture
 {
-    if(!_downGesture)
+    if (!_downGesture)
     {
         _downGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureRecognizer:)];
         _downGesture.edges = UIRectEdgeBottom;
@@ -261,9 +261,9 @@ static CGFloat const kTransform2D = 3.14159265359;
 {
     CGPoint translation = [pan translationInView:pan.view];
 
-    if(self.slideUpDownAnimation)
+    if (self.slideUpDownAnimation)
     {
-        if(self.presenting)
+        if (self.presenting)
         {
             self.percent = translation.y / -(pan.view.bounds.size.height * 0.9);
         }
@@ -274,7 +274,7 @@ static CGFloat const kTransform2D = 3.14159265359;
     }
     else
     {
-        if(self.presenting)
+        if (self.presenting)
         {
             self.percent = translation.x / -(pan.view.bounds.size.width * 0.5);
         }
@@ -406,7 +406,7 @@ static CGFloat const kTransform2D = 3.14159265359;
                      }
                      completion:^(BOOL finished) {
 
-                         if(finished)
+                         if (finished)
                          {
                              self.fromView.transform = CGAffineTransformIdentity;
                              self.fromView.alpha = 1;
@@ -443,7 +443,7 @@ static CGFloat const kTransform2D = 3.14159265359;
                      }
                      completion:^(BOOL finished) {
                          
-                         if(finished)
+                         if (finished)
                          {
                              self.fromView.transform = CGAffineTransformIdentity;
                              self.fromView.alpha = 1;
@@ -475,7 +475,7 @@ static CGFloat const kTransform2D = 3.14159265359;
                      }
                      completion:^(BOOL finished) {
                          
-                         if(finished)
+                         if (finished)
                          {
                              self.fromView.alpha = 1;
                              
@@ -505,7 +505,7 @@ static CGFloat const kTransform2D = 3.14159265359;
                      }
                      completion:^(BOOL finished) {
                          
-                         if(finished)
+                         if (finished)
                          {
                              self.fromView.transform = CGAffineTransformIdentity;
                              
