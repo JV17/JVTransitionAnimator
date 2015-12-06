@@ -249,7 +249,8 @@ static CGFloat const kTransform2D = 3.14159265359;
     
     if (!self.fromViewController || !self.toViewController)
     {
-        @throw [NSException exceptionWithName:NSGenericException reason:@"Please make sure fromViewController and toViewController properties have been set/initialize." userInfo:nil];
+        NSLog(@"Please make sure fromViewController and toViewController properties have been set/initialize.");
+        return;
     }
 
     [self updatePercentageWithPanRecognizer:pan];
