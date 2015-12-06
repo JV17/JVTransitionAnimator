@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface JVTransitionAnimator : UIPercentDrivenInteractiveTransition 
+@interface JVTransitionAnimator : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning>
 
 /**
  The main view controller which will be presenting other view controller.

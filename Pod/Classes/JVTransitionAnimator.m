@@ -9,7 +9,7 @@
 #import "JVTransitionAnimator.h"
 
 
-@interface JVTransitionAnimator() <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning>
+@interface JVTransitionAnimator()
 
 @property (nonatomic) BOOL presenting;
 
