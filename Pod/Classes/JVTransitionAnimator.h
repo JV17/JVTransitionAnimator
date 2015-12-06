@@ -10,28 +10,87 @@
 #import <UIKit/UIKit.h>
 
 
-@interface JVTransitionAnimator : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning>
+@interface JVTransitionAnimator : UIPercentDrivenInteractiveTransition 
 
-// the main view controller which will be presenting other view controller
-@property (nonatomic, strong) UIViewController *fromViewController; // *IMPORTANT FOR INTERACTIVE ANIMATIONS*
+/**
+ The main view controller which will be presenting other view controller.
+ */
+@property (nonatomic, strong) UIViewController *fromViewController;
 
-// destination view controller which is presented by you main view controller
-@property (nonatomic, strong) UIViewController *toViewController; // *IMPORTANT FOR INTERACTIVE ANIMATIONS*
 
-// this property enables the interactive animations
+/**
+ The destination view controller which is presented by you main view controller.
+ */
+@property (nonatomic, strong) UIViewController *toViewController;
+
+
+/**
+ Allows interactive transitions.
+ */
 @property (nonatomic, assign) BOOL enabledInteractiveTransitions;
 
-@property (nonatomic) CGFloat animationDuration; // set CGFloat value for animations duration
-@property (nonatomic) CGFloat animationDelay; // set CGFloat value for animations delay
-@property (nonatomic) CGFloat animationDamping; // set CGFloat value for animations damping
-@property (nonatomic) CGFloat animationVelocity; // set CGFloat value for animations velocity
-@property (nonatomic) UIViewAnimationOptions animationOptions; // set UIViewAnimationOptions for animations options
 
-// triggering animations
-@property (nonatomic) BOOL pushOnScreenAnimation; // set to YES to trigger pushOnScreenAnimations
-@property (nonatomic) BOOL slideInOutAnimation; // set to YES to trigger slideInOutAnimations
-@property (nonatomic) BOOL slideUpDownAnimation; // set to YES to trigger slideUpDownAnimation
-@property (nonatomic) BOOL zoomInAnimation; // set to YES to trigger zoomInAnimation
-@property (nonatomic) BOOL zoomOutAnimation; // set to YES to trigger zoomOutAnimation
+#pragma mark - Animations Setup
+
+/**
+ The animation duration as a @CGFloat.
+ */
+@property (nonatomic) CGFloat animationDuration;
+
+
+/**
+ The animation delay as a @CGFloat.
+ */
+@property (nonatomic) CGFloat animationDelay;
+
+
+/**
+ The animation damping as a @CGFloat.
+ */
+@property (nonatomic) CGFloat animationDamping;
+
+
+/**
+ The animation velocity as a @CGFloat.
+ */
+@property (nonatomic) CGFloat animationVelocity;
+
+
+/**
+ The animation options as a @UIViewAnimationOptions.
+ */
+@property (nonatomic) UIViewAnimationOptions animationOptions;
+
+
+#pragma mark - Animations Types
+
+/**
+ This animation will push the new view controller into the screen and off when dismissing it.
+ */
+@property (nonatomic) BOOL pushOnScreenAnimation;
+
+
+/**
+ This animation will slide in the new view controller into the screen and out when dismissing it.
+ */
+@property (nonatomic) BOOL slideInOutAnimation;
+
+
+/**
+ This animation will slide up the new view controller into the screen and down when dismissing it.
+ */
+@property (nonatomic) BOOL slideUpDownAnimation;
+
+
+/**
+ This animation will zoom in the new view controller into the screen.
+ */
+@property (nonatomic) BOOL zoomInAnimation;
+
+
+/**
+ This animation will zoom out the new view controller into the screen.
+ */
+@property (nonatomic) BOOL zoomOutAnimation;
 
 @end
