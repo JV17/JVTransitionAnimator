@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		3C128BAD1AE6019A001B0B0F /* JVSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C128BAC1AE6019A001B0B0F /* JVSecondViewController.m */; };
 		3C128BB01AE601C4001B0B0F /* JVAppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C128BAF1AE601C4001B0B0F /* JVAppHelper.m */; };
-		3C7685991AE970F200448604 /* JVTransitionAnimator.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3C7685981AE970F200448604 /* JVTransitionAnimator.podspec */; };
 		3CC6A6DC1AE8A2900011CDD2 /* JVTouchEventsWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6A6D71AE8A2900011CDD2 /* JVTouchEventsWindow.m */; };
 		3CC6A6DD1AE8A2900011CDD2 /* JVTouchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6A6D91AE8A2900011CDD2 /* JVTouchHelper.m */; };
 		3CC6A6DE1AE8A2900011CDD2 /* JVTouchImageViewQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6A6DB1AE8A2900011CDD2 /* JVTouchImageViewQueue.m */; };
 		3CC6A6E11AE8A2C50011CDD2 /* JVTouchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CC6A6DF1AE8A2C50011CDD2 /* JVTouchImage.png */; };
 		3CC6A6E21AE8A2C50011CDD2 /* JVTouchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CC6A6E01AE8A2C50011CDD2 /* JVTouchImage@2x.png */; };
 		3CED99E91AE7E7C300EFD8F5 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 3CED99E81AE7E7C300EFD8F5 /* Images */; };
+		499DC25049421416DC7BBEB7 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB1248544F30DD157E025F /* libPods-Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -31,8 +31,8 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		ACFC3DF1578558B4BA758CE2 /* libPods-JVTransitionAnimator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B201D0198A5E9B8A847385EB /* libPods-JVTransitionAnimator.a */; };
-		BD46A101718EFF8AF3667D54 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843BCC20D5D670BD9A3B5AFC /* libPods-Tests.a */; };
+		A2AEB30BB00D88A9B156A780 /* libPods-JVTransitionAnimator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2CD19968F3F0D3497F143E /* libPods-JVTransitionAnimator.a */; };
+		F46A4FBF2313740A00C527E6 /* JVTransitionAnimator.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F46A4FBE2313740A00C527E6 /* JVTransitionAnimator.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,12 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		392DC3D9B548EA0914BC21A4 /* Pods-JVTransitionAnimtor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JVTransitionAnimtor.release.xcconfig"; path = "Pods/Target Support Files/Pods-JVTransitionAnimtor/Pods-JVTransitionAnimtor.release.xcconfig"; sourceTree = "<group>"; };
+		07EFAE42D4499A8DEA0D03F4 /* Pods-JVTransitionAnimator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JVTransitionAnimator.debug.xcconfig"; path = "Target Support Files/Pods-JVTransitionAnimator/Pods-JVTransitionAnimator.debug.xcconfig"; sourceTree = "<group>"; };
+		1E2CD19968F3F0D3497F143E /* libPods-JVTransitionAnimator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JVTransitionAnimator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FBB1248544F30DD157E025F /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C128BAB1AE6019A001B0B0F /* JVSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVSecondViewController.h; sourceTree = "<group>"; };
 		3C128BAC1AE6019A001B0B0F /* JVSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVSecondViewController.m; sourceTree = "<group>"; };
 		3C128BAE1AE601C4001B0B0F /* JVAppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVAppHelper.h; sourceTree = "<group>"; };
 		3C128BAF1AE601C4001B0B0F /* JVAppHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVAppHelper.m; sourceTree = "<group>"; };
-		3C7685981AE970F200448604 /* JVTransitionAnimator.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JVTransitionAnimator.podspec; sourceTree = "<group>"; };
 		3C988A311AE97FB400AD1A25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3C988A351AE98A7600AD1A25 /* libPods-JVTransitionAnimator-JVTransitionAnimator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-JVTransitionAnimator-JVTransitionAnimator.a"; path = "Pods/../build/Debug-iphoneos/libPods-JVTransitionAnimator-JVTransitionAnimator.a"; sourceTree = "<group>"; };
 		3C988A371AE98BE400AD1A25 /* Pod */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Pod; path = ../Pod; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		3CC6A6DF1AE8A2C50011CDD2 /* JVTouchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JVTouchImage.png; sourceTree = "<group>"; };
 		3CC6A6E01AE8A2C50011CDD2 /* JVTouchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JVTouchImage@2x.png"; sourceTree = "<group>"; };
 		3CED99E81AE7E7C300EFD8F5 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		4358D2970301942050E704F2 /* Pods-JVTransitionAnimator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JVTransitionAnimator.release.xcconfig"; path = "Target Support Files/Pods-JVTransitionAnimator/Pods-JVTransitionAnimator.release.xcconfig"; sourceTree = "<group>"; };
 		5E6AD8F309A117E84A027E58 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JVTransitionAnimator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JVTransitionAnimator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,15 +88,10 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		6D9BA7B951CBED822750EDFB /* Pods-JVTransitionAnimator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JVTransitionAnimator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JVTransitionAnimator/Pods-JVTransitionAnimator.debug.xcconfig"; sourceTree = "<group>"; };
-		6E3733921322EDC9DC26FA4C /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		843BCC20D5D670BD9A3B5AFC /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		669548D2B713B8467B6B4149 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8CE67E09D9219B77E4374E0C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		99D87C4CD7882D12A10AE500 /* Pods-JVTransitionAnimtor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JVTransitionAnimtor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JVTransitionAnimtor/Pods-JVTransitionAnimtor.debug.xcconfig"; sourceTree = "<group>"; };
-		B201D0198A5E9B8A847385EB /* libPods-JVTransitionAnimator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JVTransitionAnimator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C016BAD63C4859B98773C3A1 /* libPods-JVTransitionAnimtor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JVTransitionAnimtor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA9C9C88E666E0B6872CE0FB /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		EFD922A93BB1565C125526EF /* Pods-JVTransitionAnimator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JVTransitionAnimator.release.xcconfig"; path = "Pods/Target Support Files/Pods-JVTransitionAnimator/Pods-JVTransitionAnimator.release.xcconfig"; sourceTree = "<group>"; };
+		CBBC12B2DA326450760B0AA6 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F46A4FBE2313740A00C527E6 /* JVTransitionAnimator.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JVTransitionAnimator.podspec; path = ../JVTransitionAnimator.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +102,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				ACFC3DF1578558B4BA758CE2 /* libPods-JVTransitionAnimator.a in Frameworks */,
+				A2AEB30BB00D88A9B156A780 /* libPods-JVTransitionAnimator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +113,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				BD46A101718EFF8AF3667D54 /* libPods-Tests.a in Frameworks */,
+				499DC25049421416DC7BBEB7 /* libPods-Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +163,7 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				C135BE412D3BFC48EDE29650 /* Pods */,
+				A3C554F87E572E381F205DD5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,9 +185,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				C016BAD63C4859B98773C3A1 /* libPods-JVTransitionAnimtor.a */,
-				843BCC20D5D670BD9A3B5AFC /* libPods-Tests.a */,
-				B201D0198A5E9B8A847385EB /* libPods-JVTransitionAnimator.a */,
+				1E2CD19968F3F0D3497F143E /* libPods-JVTransitionAnimator.a */,
+				1FBB1248544F30DD157E025F /* libPods-Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -245,24 +241,22 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				3C7685981AE970F200448604 /* JVTransitionAnimator.podspec */,
+				F46A4FBE2313740A00C527E6 /* JVTransitionAnimator.podspec */,
 				5E6AD8F309A117E84A027E58 /* README.md */,
 				8CE67E09D9219B77E4374E0C /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		C135BE412D3BFC48EDE29650 /* Pods */ = {
+		A3C554F87E572E381F205DD5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				99D87C4CD7882D12A10AE500 /* Pods-JVTransitionAnimtor.debug.xcconfig */,
-				392DC3D9B548EA0914BC21A4 /* Pods-JVTransitionAnimtor.release.xcconfig */,
-				CA9C9C88E666E0B6872CE0FB /* Pods-Tests.debug.xcconfig */,
-				6E3733921322EDC9DC26FA4C /* Pods-Tests.release.xcconfig */,
-				6D9BA7B951CBED822750EDFB /* Pods-JVTransitionAnimator.debug.xcconfig */,
-				EFD922A93BB1565C125526EF /* Pods-JVTransitionAnimator.release.xcconfig */,
+				07EFAE42D4499A8DEA0D03F4 /* Pods-JVTransitionAnimator.debug.xcconfig */,
+				4358D2970301942050E704F2 /* Pods-JVTransitionAnimator.release.xcconfig */,
+				669548D2B713B8467B6B4149 /* Pods-Tests.debug.xcconfig */,
+				CBBC12B2DA326450760B0AA6 /* Pods-Tests.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,11 +266,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "JVTransitionAnimator" */;
 			buildPhases = (
-				7D321DEE3A569DE436475697 /* Check Pods Manifest.lock */,
+				5415C15AF53D82D461A611E2 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				8721139CC7BFD3777BE79F68 /* Copy Pods Resources */,
+				208DDAED0B35C936F584DA46 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,11 +285,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
-				8F63E5201024CB8D40071648 /* Check Pods Manifest.lock */,
+				213C88C187A3FC5F9AD7000A /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				38E0006E4E31587688F1DC71 /* Copy Pods Resources */,
+				5DB84B0BA3229699AF61D147 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -314,7 +308,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = JV;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Jorge Valbuena";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
@@ -330,6 +324,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -355,7 +350,7 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				3CC6A6E11AE8A2C50011CDD2 /* JVTouchImage.png in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
-				3C7685991AE970F200448604 /* JVTransitionAnimator.podspec in Resources */,
+				F46A4FBF2313740A00C527E6 /* JVTransitionAnimator.podspec in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,64 +366,84 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		38E0006E4E31587688F1DC71 /* Copy Pods Resources */ = {
+		208DDAED0B35C936F584DA46 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JVTransitionAnimator/Pods-JVTransitionAnimator-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/JVTransitionAnimator/JVTransitionAnimator.bundle",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JVTransitionAnimator.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JVTransitionAnimator/Pods-JVTransitionAnimator-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7D321DEE3A569DE436475697 /* Check Pods Manifest.lock */ = {
+		213C88C187A3FC5F9AD7000A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8721139CC7BFD3777BE79F68 /* Copy Pods Resources */ = {
+		5415C15AF53D82D461A611E2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JVTransitionAnimator-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JVTransitionAnimator/Pods-JVTransitionAnimator-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8F63E5201024CB8D40071648 /* Check Pods Manifest.lock */ = {
+		5DB84B0BA3229699AF61D147 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tests/Pods-Tests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/JVTransitionAnimator/JVTransitionAnimator.bundle",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JVTransitionAnimator.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -508,25 +523,38 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -542,7 +570,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
@@ -554,24 +582,37 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -581,7 +622,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -591,7 +632,7 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D9BA7B951CBED822750EDFB /* Pods-JVTransitionAnimator.debug.xcconfig */;
+			baseConfigurationReference = 07EFAE42D4499A8DEA0D03F4 /* Pods-JVTransitionAnimator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -600,7 +641,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JVTransitionAnimator/JVTransitionAnimator-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JVTransitionAnimator/JVTransitionAnimator-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = JVTransitionAnimator;
@@ -611,7 +652,7 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFD922A93BB1565C125526EF /* Pods-JVTransitionAnimator.release.xcconfig */;
+			baseConfigurationReference = 4358D2970301942050E704F2 /* Pods-JVTransitionAnimator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -620,7 +661,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JVTransitionAnimator/JVTransitionAnimator-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/JVTransitionAnimator/JVTransitionAnimator-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = JVTransitionAnimator;
@@ -631,7 +672,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA9C9C88E666E0B6872CE0FB /* Pods-Tests.debug.xcconfig */;
+			baseConfigurationReference = 669548D2B713B8467B6B4149 /* Pods-Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JVTransitionAnimator.app/JVTransitionAnimator";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -655,7 +696,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E3733921322EDC9DC26FA4C /* Pods-Tests.release.xcconfig */;
+			baseConfigurationReference = CBBC12B2DA326450760B0AA6 /* Pods-Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JVTransitionAnimator.app/JVTransitionAnimator";
 				FRAMEWORK_SEARCH_PATHS = (

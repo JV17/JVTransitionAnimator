@@ -1,5 +1,5 @@
 PODS:
-  - JVTransitionAnimator (0.1.0)
+  - JVTransitionAnimator (1.0)
 
 DEPENDENCIES:
   - JVTransitionAnimator (from `../`)
@@ -9,6 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JVTransitionAnimator: de078af51dd8ba2573223d87bdffe4068f3a883a
+  JVTransitionAnimator: 034e4192cdb0ddd3d906c3666f1d874e6ece73c3
 
-COCOAPODS: 0.36.4
+PODFILE CHECKSUM: e12767785cd039f59cd9a942c7620084d2922f27
+
+COCOAPODS: 1.7.5
