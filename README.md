@@ -69,7 +69,7 @@ self.transitionAnimator.velocity = 0.9f;
 
 ## Requirements
 
-Developed and tested using iOS8+.
+Developed and tested using iOS11+.
 
 ## Installation
 
